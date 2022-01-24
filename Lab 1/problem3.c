@@ -2,13 +2,13 @@
 #include <math.h>
 
 double hypotenuse (double a, double b) {
-    return sqrt(pow(a,2) + pow(b,2));
+    return sqrt(pow(a,2) + pow(b,2)); //formula
 }
 double perimeter(double a, double b, double c) {
-    return a+b+c; 
+    return a+b+c; //formula
 }
 double surfaceArea (double b, double h) {
-    return (b*h)/2;
+    return (b*h)/2; //formula
 }
 
 int main(void) {
@@ -25,13 +25,13 @@ int main(void) {
     printf("What is Height: ");
     scanf("%lf", &height);
     
-    //formula
+    //calling methods
     double hyp = hypotenuse(a,b);
     double per = perimeter(a,b,hyp);
     double surA = surfaceArea(b,height);
     
     //output
     printf("Hypotenuse: %lf\nPerimeter: %lf\nSurface Area: %lf", hyp,per,surA);
-    //printf("%lf", "\nPerimeter", per);   
+   
     return 0;
 }
