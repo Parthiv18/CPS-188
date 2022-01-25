@@ -15,20 +15,17 @@ int main(void) {
     //var
     double a;
     double b;
-    double height;
 
     //scan
     printf("What is Side A: ");
     scanf("%lf", &a); 
     printf("What is Side B: ");
     scanf("%lf", &b);
-    printf("What is Height: ");
-    scanf("%lf", &height);
-    
+   
     //calling methods
     double hyp = hypotenuse(a,b);
     double per = perimeter(a,b,hyp);
-    double surA = surfaceArea(b,height);
+    double surA = surfaceArea(b,a);
     
     //output
     printf("Hypotenuse: %lf\nPerimeter: %lf\nSurface Area: %lf", hyp,per,surA);
