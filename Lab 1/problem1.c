@@ -9,6 +9,20 @@ void bubbleSort(int arr[], int size)
                 int temp = arr[i];
                 arr[i] = arr[i + 1];
                 arr[i + 1] = temp;
+
+
+                /*3 1 2
+                    3 
+                    1
+                    3>1
+                        temp = arr[i] (3)
+                        arr[i] (3) = arr[i + 1] (1)
+                        arr[i+1] (3) = temp (3)
+
+                        temp = 3
+                        arr[i] = 1
+                        arr[i+1] = 3
+                */
             }
         }
     }

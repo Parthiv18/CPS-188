@@ -28,7 +28,7 @@ int main(void) {
     double surA = surfaceArea(b,a);
     
     //output
-    printf("Hypotenuse: %lf\nPerimeter: %lf\nSurface Area: %lf", hyp,per,surA);
+    printf("Hypotenuse: %.2lf\nPerimeter: %.2lf\nSurface Area: %.2lf", hyp,per,surA);
    
     return 0;
 }
