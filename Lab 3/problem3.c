@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <math.h>
+
 /*
     scale of 0-10
     two lowest are dropped
@@ -40,35 +41,54 @@ double finalValue (double midGrade, double finalGrade) {
     return 0; //error
 }
 
-double quizAvg (double quizTotalSum) {
-    return quizTotalSum/8; //change to 8 after
+void sortQuiz (double arr[]) {
+    for (int i = 0; i < 10 ; i++) {
+        for (int j = i ; j < 10-1 ; j++) {
+            if (arr[i] > arr[j]) {
+                double temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
+            }
+        }
+    }
 }
 
 int main() {
-    int counter=0;
-    double sum=0,midtermGrade,finalGrade;
-    
-    while (counter<10) { //still have to remove 2 lowest
-        double quiz;
-        printf("Quiz grade (total 10): ");
-        scanf("%lf", &quiz);
-        sum += quiz;
+
+    int counter=1;
+    double quiz[9];
+    double sum=0;
+    double midtermGrade,finalGrade;
+
+    //printf("%d\n", sizeof(quiz)/4);
+
+    //add quiz port
+    for (int i = 0 ; i<10; i++) {
+        printf("What is Quiz Mark (%d of 10): ", counter);
+        scanf("%lf", &quiz[i]);
         counter++;
-    }
+    } 
+    sortQuiz(quiz);
+    for (int i=2 ; i<10; i++) {
+        //printf("%2.2lf ", quiz[i]);
+        sum += quiz[i];
+    } 
 
     //midterm and final grade info
     printf("MidTerm Grade: ");
-    scanf("%lf", &midtermGrade);
+    scanf("\n%lf", &midtermGrade);
     printf("Final Grade: ");
-    scanf("%lf", &finalGrade);
+    scanf("\n%lf", &finalGrade);
 
     //formula
-    double courseGrade = ((quizAvg(sum)*25) + (midtermGrade*midValue(midtermGrade,finalGrade)) + (finalGrade*finalValue(midtermGrade,finalGrade))) / 100;
+    double courseGrade = (((sum/80)*25) + (midtermGrade*midValue(midtermGrade,finalGrade)) + (finalGrade*finalValue(midtermGrade,finalGrade))) / 100;
 
     //printf("%.2lf avg is %.2lf", sum, quizAvg(sum)); 
-    if ((midtermGrade*midValue(midtermGrade,finalGrade)) !=0 && (finalGrade*finalValue(midtermGrade,finalGrade)) !=0)
-        printf("Course Grade: %.2lf", courseGrade); 
-    else 
+    if ((midtermGrade*midValue(midtermGrade,finalGrade)) !=0 && (finalGrade*finalValue(midtermGrade,finalGrade)) !=0) {
+        printf("Course Grade: %.2lf", courseGrade);
+    }
+    else  {
         printf("ERROR HAS OCCURED"); //if error happens
+    }
     return 0;
 }

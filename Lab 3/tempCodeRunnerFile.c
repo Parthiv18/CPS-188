@@ -1,0 +1,2 @@
+
+    scanf("%lf\n", &finalGrade);
