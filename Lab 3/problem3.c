@@ -68,7 +68,7 @@ int main() {
     } 
     sortQuiz(quiz);
     for (int i=2 ; i<10; i++) {
-        sum += quiz[i];
+        sum += quiz[i]; //print here
     } 
 
     //midterm and final grade info
@@ -80,6 +80,7 @@ int main() {
     //formula
     double courseGrade = (((sum/8)*25) + (midtermGrade*midValue(midtermGrade,finalGrade)) + (finalGrade*finalValue(midtermGrade,finalGrade))) / 100;
 
+    //print something here
     if ((midtermGrade*midValue(midtermGrade,finalGrade)) !=0 && (finalGrade*finalValue(midtermGrade,finalGrade)) !=0) {
         printf("Course Grade: %.2lf", courseGrade);
     }
