@@ -60,8 +60,6 @@ int main() {
     double sum=0;
     double midtermGrade,finalGrade;
 
-    //printf("%d\n", sizeof(quiz)/4);
-
     //add quiz port
     for (int i = 0 ; i<10; i++) {
         printf("What is Quiz Mark (%d of 10): ", counter);
@@ -70,7 +68,6 @@ int main() {
     } 
     sortQuiz(quiz);
     for (int i=2 ; i<10; i++) {
-        //printf("%2.2lf ", quiz[i]);
         sum += quiz[i];
     } 
 
@@ -81,9 +78,8 @@ int main() {
     scanf("\n%lf", &finalGrade);
 
     //formula
-    double courseGrade = (((sum/80)*25) + (midtermGrade*midValue(midtermGrade,finalGrade)) + (finalGrade*finalValue(midtermGrade,finalGrade))) / 100;
+    double courseGrade = (((sum/8)*25) + (midtermGrade*midValue(midtermGrade,finalGrade)) + (finalGrade*finalValue(midtermGrade,finalGrade))) / 100;
 
-    //printf("%.2lf avg is %.2lf", sum, quizAvg(sum)); 
     if ((midtermGrade*midValue(midtermGrade,finalGrade)) !=0 && (finalGrade*finalValue(midtermGrade,finalGrade)) !=0) {
         printf("Course Grade: %.2lf", courseGrade);
     }
