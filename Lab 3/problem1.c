@@ -1,43 +1,38 @@
-#include <stdio.h>
 #include <math.h>
+#include <stdio.h>
 
 double intenLevel(char level) {
     if (level == 'L') {
         return 0.55;
-    }
-    else if (level == 'M') {
+    } else if (level == 'M') {
         return 0.65;
-    }
-    else if (level == 'H') {
+    } else if (level == 'H') {
         return 0.8;
+    } else {
+        return 0;  // return 0 for error
     }
-    else {
-        return 0; //return 0 for error
-    }
-    return 0; //return 0 for error
+    return 0;  // return 0 for error
 }
 
-double formula (char gender, int age, int rhr, char level) {
-    double maleMHR = 203.7/(1+exp(0.033*(age-104.3))); //formula for male
-    double femaleMHR = 190.2/(1+exp(0.04534*(age-107.5))); //formula for female
+double formula(char gender, int age, int rhr, char level) {
+    double maleMHR = 203.7 / (1 + exp(0.033 * (age - 104.3)));      // formula for male
+    double femaleMHR = 190.2 / (1 + exp(0.04534 * (age - 107.5)));  // formula for female
 
-    if (gender == 'F') {
-        return (femaleMHR-rhr)*(intenLevel(level)+rhr);
+    if (gender == 'F') {  // if char is F then apply female formula
+        return (femaleMHR - rhr) * (intenLevel(level) + rhr);
+    } else if (gender == 'M') {  // if char is M then apply male formula
+        return (maleMHR - rhr) * (intenLevel(level) + rhr);
+    } else {
+        return 0;  // return 0 for error //return 0 for error
     }
-    else if (gender == 'M') {
-        return (maleMHR-rhr)*(intenLevel(level)+rhr);
-    }
-    else {
-        return 0; //return 0 for error //return 0 for error
-    }
-    return 0; //return 0 for error
+    return 0;  // return 0 for error
 }
 
-int main () {
+int main() {
     char gender, fitnessLevel;
     int age, heartRate;
 
-    //getting info
+    // getting info
     printf("What is your age: ");
     scanf("%d", &age);
     printf("What is your gender (M,F): ");
@@ -46,11 +41,11 @@ int main () {
     scanf("%d", &heartRate);
     printf("What is your fitness level (L,M,H): ");
     scanf(" %c", &fitnessLevel);
-            
-    if (formula(gender,age,heartRate,fitnessLevel) && intenLevel(fitnessLevel) != 0) 
-        printf("%lf", formula(gender,age,heartRate,fitnessLevel)); //no error if all conditions are met
-    else
-        printf("ERROR [Please Enter Valid Inputs]"); //error
 
-    return 0;      
+    if (formula(gender, age, heartRate, fitnessLevel) && intenLevel(fitnessLevel) != 0)
+        printf("%lf", formula(gender, age, heartRate, fitnessLevel));  // no error if all conditions are met
+    else
+        printf("ERROR [Please Enter Valid Inputs]");  // error
+
+    return 0;
 }
