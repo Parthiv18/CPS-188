@@ -15,7 +15,7 @@
             final = 50% of course grade
 */
 
-double midValue(double midGrade, double finalGrade) {
+double midValue(double midGrade, double finalGrade) {  // method to calculate midterm weight accordingly
     if (midGrade >= finalGrade) {
         return 35;
     } else if (midGrade < finalGrade) {
@@ -25,7 +25,7 @@ double midValue(double midGrade, double finalGrade) {
     }
 }
 
-double finalValue(double midGrade, double finalGrade) {
+double finalValue(double midGrade, double finalGrade) {  // method to calculate final weight accordingly
     if (midGrade >= finalGrade) {
         return 40;
     } else if (midGrade < finalGrade) {
@@ -35,33 +35,34 @@ double finalValue(double midGrade, double finalGrade) {
     }
 }
 
-void sortQuiz(double arr[]) {
-    for (int i = 0; i < 10; i++) {
-        for (int j = i; j < 10 - 1; j++) {
-            if (arr[i] > arr[j]) {
-                double temp = arr[i];
-                arr[i] = arr[j];
-                arr[j] = temp;
+void sortQuiz(double arr[]) {               // bubble sort method on quiz array
+    for (int i = 0; i < 10; i++) {          // loop size of array
+        for (int j = i; j < 10 - 1; j++) {  // loop one more
+            if (arr[i] > arr[j]) {          // if pos at i is greater than pos at j
+                double temp = arr[i];       // store in temp
+                arr[i] = arr[j];            // make pos at i same as pos at j
+                arr[j] = temp;              // store pos at j in temp to re-perform sort
             }
         }
     }
 }
 
 int main() {
+    // var
     int counter = 1;
     double quiz[9];
     double sum = 0;
     double midtermGrade, finalGrade;
 
-    // add quiz port
+    // asking for 10 quizzes
     for (int i = 0; i < 10; i++) {
         printf("What is Quiz Mark (%d of 10): ", counter);
         scanf("%lf", &quiz[i]);
         counter++;
     }
-    sortQuiz(quiz);
-    for (int i = 2; i < 10; i++) {
-        sum += quiz[i];  // print here
+    sortQuiz(quiz);                 // running the bubble sort
+    for (int i = 2; i < 10; i++) {  // starting at 2 meanign 2 lowest quizzes are not accounted for
+        sum += quiz[i];             // print here
     }
 
     // midterm and final grade info
