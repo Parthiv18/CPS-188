@@ -23,7 +23,6 @@ double midValue(double midGrade, double finalGrade) {
     } else {
         return 0;  // error
     }
-    return 0;  // error
 }
 
 double finalValue(double midGrade, double finalGrade) {
@@ -34,7 +33,6 @@ double finalValue(double midGrade, double finalGrade) {
     } else {
         return 0;  // error
     }
-    return 0;  // error
 }
 
 void sortQuiz(double arr[]) {
@@ -73,11 +71,12 @@ int main() {
     scanf("\n%lf", &finalGrade);
 
     // formula
-    double courseGrade = (((sum / 8) * 25) + (midtermGrade * midValue(midtermGrade, finalGrade)) + (finalGrade * finalValue(midtermGrade, finalGrade))) / 100;
+    double quizFormula = (sum / 80) * 100;
+    double courseGrade = ((quizFormula * 25) + (midtermGrade * midValue(midtermGrade, finalGrade)) + (finalGrade * finalValue(midtermGrade, finalGrade))) / 100;
 
     // print something here
     if ((midtermGrade * midValue(midtermGrade, finalGrade)) != 0 && (finalGrade * finalValue(midtermGrade, finalGrade)) != 0) {
-        printf("Course Grade: %.2lf", courseGrade);
+        printf("Course Grade (PERCENTAGE): %.2lf", courseGrade);
     } else {
         printf("ERROR HAS OCCURED");  // if error happens
     }

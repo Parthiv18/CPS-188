@@ -1,7 +1,7 @@
 #include <math.h>
 #include <stdio.h>
 
-double intenLevel(char level) {
+double intenLevel(char level) {  // method for returning values depending on low, medium or high
     if (level == 'L') {
         return 0.55;
     } else if (level == 'M') {
@@ -9,12 +9,11 @@ double intenLevel(char level) {
     } else if (level == 'H') {
         return 0.8;
     } else {
-        return 0;  // return 0 for error
+        return 0;  // return 0 for error [returns also for method]
     }
-    return 0;  // return 0 for error
 }
 
-double formula(char gender, int age, int rhr, char level) {
+double formula(char gender, int age, int rhr, char level) {         // method for formula
     double maleMHR = 203.7 / (1 + exp(0.033 * (age - 104.3)));      // formula for male
     double femaleMHR = 190.2 / (1 + exp(0.04534 * (age - 107.5)));  // formula for female
 
@@ -23,12 +22,12 @@ double formula(char gender, int age, int rhr, char level) {
     } else if (gender == 'M') {  // if char is M then apply male formula
         return (maleMHR - rhr) * (intenLevel(level) + rhr);
     } else {
-        return 0;  // return 0 for error //return 0 for error
+        return 0;  // return 0 for error [returns also for method]
     }
-    return 0;  // return 0 for error
 }
 
 int main() {
+    // var
     char gender, fitnessLevel;
     int age, heartRate;
 
@@ -43,7 +42,7 @@ int main() {
     scanf(" %c", &fitnessLevel);
 
     if (formula(gender, age, heartRate, fitnessLevel) && intenLevel(fitnessLevel) != 0)
-        printf("%lf", formula(gender, age, heartRate, fitnessLevel));  // no error if all conditions are met
+        printf("Training Heart Rate: %1.0lf", formula(gender, age, heartRate, fitnessLevel));  // no error if all conditions are met and rounding to nearest int
     else
         printf("ERROR [Please Enter Valid Inputs]");  // error
 

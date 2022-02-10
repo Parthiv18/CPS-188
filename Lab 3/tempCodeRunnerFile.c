@@ -1,2 +1,2 @@
-
-    scanf("%lf\n", &finalGrade);
+printf("Enter your height (m): ");
+    scanf("%lf", &height);
