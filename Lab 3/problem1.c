@@ -18,9 +18,9 @@ double formula(char gender, int age, int rhr, char level) {         // method fo
     double femaleMHR = 190.2 / (1 + exp(0.04534 * (age - 107.5)));  // formula for female
 
     if (gender == 'F') {  // if char is F then apply female formula
-        return (femaleMHR - rhr) * (intenLevel(level) + rhr);
+        return (intenLevel(level) * (femaleMHR - rhr)) + rhr;
     } else if (gender == 'M') {  // if char is M then apply male formula
-        return (maleMHR - rhr) * (intenLevel(level) + rhr);
+        return (intenLevel(level) * (maleMHR - rhr)) + rhr;
     } else {
         return 0;  // return 0 for error [returns also for method]
     }
