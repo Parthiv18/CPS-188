@@ -19,7 +19,7 @@ int main() {
         int value = 1;
         for (int j = 0; j <= i; j++) {
             printf("%d ", value);
-            value = (value * (i - j) / (j + 1)); //formula 
+            value = (value * (i - j) / (j + 1));  // formula
         }
         printf("\n");
     }
