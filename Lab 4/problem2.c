@@ -18,6 +18,8 @@ int main() {
         base wage rate (real)
         one number per shift => number of hours worked
     */
+
+    // var
     char line[1000];
     FILE *fp = fopen("L4_data.txt", "r");
 
@@ -25,6 +27,7 @@ int main() {
     double wage;
     int sum = 0;
 
+    printf("Employee Number\tShifts\tWage\tHours Worked\tGross Pay\n");
     // scanning
     while (fscanf(fp, "%d %d %lf", &empNum, &shift, &wage) != EOF) {  // running a while loop till end of line
         for (int i = 0; i < shift; i++) {                             // we set i to 0 and run it shift number of times
@@ -33,7 +36,7 @@ int main() {
             sum += hours;  // getting the sum of all the sums for each empolyee
         }
         // printf("Employee Number: %d\tShifts: %d\tWage: %.2lf\tGross Pay: $%.2lf\n", empNum, shift, wage, grossPay(hours, wage));
-        printf("Employee Number: %d\t\tShifts: %d\tWage: %.2lf\tTotal Hours: %d\t\tGross Pay: $%.2lf\n", empNum, shift, wage, sum, grossPay(sum, wage));  // output
+        printf("%d\t\t%d\t$%.2lf\t%d\t\t$%.2lf\n", empNum, shift, wage, sum, grossPay(sum, wage));  // output
         // sum is 0 for new empolyee
         sum = 0;
     }
