@@ -23,9 +23,18 @@ int main() {
 
     int empNum, shift, hours;
     double wage;
+    int sum = 0;
+
     // scanning
-    while (fscanf(fp, "%d %d %lf %d", &empNum, &shift, &wage, &hours) != EOF) {
-        printf("Employee Number: %d\tShifts: %d\tWage: %.2lf\tGross Pay: $%.2lf\n", empNum, shift, wage, grossPay(hours, wage));
+    while (fscanf(fp, "%d %d %lf", &empNum, &shift, &wage) != EOF) {  // running a while loop till end of line
+        for (int i = 0; i < shift; i++) {                             // we set i to 0 and run it shift number of times
+            fscanf(fp, "%d", &hours);                                 // scan all the trailing hours
+            // printf("%d\n", hours);
+            sum += hours;  // getting the sum of all the sums for each empolyee
+        }
+        // printf("Employee Number: %d\tShifts: %d\tWage: %.2lf\tGross Pay: $%.2lf\n", empNum, shift, wage, grossPay(hours, wage));
+        printf("Employee Number: %d\tShifts: %d\tWage: %.2lf\tHours: %d\tGross Pay: $%.2lf\n", empNum, shift, wage, sum, grossPay(sum, wage));  // output
+        sum = 0;                                                                                                                                // sum is 0 for new empolyee
     }
     fclose(fp);
 

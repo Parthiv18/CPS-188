@@ -15,7 +15,11 @@ Pascal Triangle
 */
 
 int main() {
-    for (int i = 0; i <= 8; i++) {
+    int size = 8;
+    for (int i = 0; i <= size; i++) {
+        /*for (int k = 0; k <= (size - i); k++) {
+            printf(" ");
+        }*/
         int value = 1;
         for (int j = 0; j <= i; j++) {
             printf("%d ", value);
