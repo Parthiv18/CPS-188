@@ -14,8 +14,8 @@ Pascal Triangle
 1 8 28 56 70 56 28 8 1
 */
 
-int main() {
-    for (int i = 0; i <= 8; i++) {
+void output(int input) {
+    for (int i = 0; i <= input; i++) {
         int value = 1;
         for (int j = 0; j <= i; j++) {
             printf("%d ", value);
@@ -23,5 +23,18 @@ int main() {
         }
         printf("\n");
     }
+}
+
+int main() {
+    // var
+    int row;
+
+    // getting info
+    printf("How many rows? ");
+    scanf("%d", &row);
+
+    // output
+    output(row);
+
     return 0;
 }
