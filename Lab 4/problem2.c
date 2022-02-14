@@ -33,8 +33,9 @@ int main() {
             sum += hours;  // getting the sum of all the sums for each empolyee
         }
         // printf("Employee Number: %d\tShifts: %d\tWage: %.2lf\tGross Pay: $%.2lf\n", empNum, shift, wage, grossPay(hours, wage));
-        printf("Employee Number: %d\tShifts: %d\tWage: %.2lf\tHours: %d\tGross Pay: $%.2lf\n", empNum, shift, wage, sum, grossPay(sum, wage));  // output
-        sum = 0;                                                                                                                                // sum is 0 for new empolyee
+        printf("Employee Number: %d\t\tShifts: %d\tWage: %.2lf\tTotal Hours: %d\t\tGross Pay: $%.2lf\n", empNum, shift, wage, sum, grossPay(sum, wage));  // output
+        // sum is 0 for new empolyee
+        sum = 0;
     }
     fclose(fp);
 
