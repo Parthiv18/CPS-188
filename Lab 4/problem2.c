@@ -23,15 +23,10 @@ int main() {
 
     int empNum, shift, hours;
     double wage;
-
-    // testing
-    while (fgets(line, sizeof(line), fp)) {
-        sscanf(line, "%d %d %lf %d", &empNum, &shift, &wage, &hours);
-        // printf("%d %d %lf %d\n", empNum, shift, wage, hours);
-        printf("Employee Number: %d , Shifts: %d , Wage: %.2lf , Gross Pay: $%.2lf\n", empNum, shift, wage, grossPay(hours, wage));
+    // scanning
+    while (fscanf(fp, "%d %d %lf %d", &empNum, &shift, &wage, &hours) != EOF) {
+        printf("Employee Number: %d\tShifts: %d\tWage: %.2lf\tGross Pay: $%.2lf\n", empNum, shift, wage, grossPay(hours, wage));
     }
-    // output();
-
     fclose(fp);
 
     return 0;

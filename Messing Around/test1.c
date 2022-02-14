@@ -8,19 +8,22 @@ int main() {
 
     // pointers => getting location
     int num = 44;
-    int num1 = 44;
-    printf("num at address: %d %d\n", &num, &num1);
-    printf("num at address: %d %d\n", num, num1);
-
+    printf("num is %d stored at address %d\n", num, &num);
     // pointer => declaring
-    int *point = &num;
-    printf("pointer: %d\n", point);
-
+    int val = 50;
+    int *point = &val;
+    printf("val pointer: %d\n", point);
     // pointer => array
     int arr[5] = {1, 2, 3, 4, 5};
     int *ptr = arr;
-
     printf("array pointer: %d\n", ptr);
+    // pointer => assigning new value
+    int *pointing;
+    int var = 55;
+    pointing = &var;
+    printf("Var Old: %d\n", var);
+    *pointing = 44;
+    printf("Var New: %d\n", var);
 
     return 0;
 }
