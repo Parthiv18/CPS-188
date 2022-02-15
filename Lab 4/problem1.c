@@ -15,7 +15,9 @@ Pascal Triangle
 */
 
 int main() {
-    int size = 8;
+    int size;
+    printf("Enter Size: ");
+    scanf("%d", &size);
     for (int i = 0; i <= size; i++) {
         /*for (int k = 0; k <= (size - i); k++) {
             printf(" ");

@@ -36,7 +36,7 @@ int main() {
             sum += hours;  // getting the sum of all the sums for each empolyee
         }
         // printf("Employee Number: %d\tShifts: %d\tWage: %.2lf\tGross Pay: $%.2lf\n", empNum, shift, wage, grossPay(hours, wage));
-        printf("\t%d |\t\t%d | \t%.2lf | \t%d | %.2lf\n", empNum, shift, wage, sum, grossPay(sum, wage));  // output        
+        printf("\t%d |\t\t%d | \t$%.2lf | \t%d | $%.2lf\n", empNum, shift, wage, sum, grossPay(sum, wage));  // output
         // sum is 0 for new empolyee
         sum = 0;
     }
