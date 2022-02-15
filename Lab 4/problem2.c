@@ -1,7 +1,7 @@
 #include <math.h>
 #include <stdio.h>
 
-double grossPay(int hour, double wage) {
+double grossPay(int hour, double wage) {  // function to calculate the grosspay with conditions
     if (hour <= 15) {
         return hour * wage;
     } else if (hour > 15 && hour <= 25) {
@@ -9,7 +9,7 @@ double grossPay(int hour, double wage) {
     } else if (hour > 25) {
         return hour * (wage * 1.10);
     }
-}  // round to nearst cent
+}
 
 int main() {
     /*
@@ -32,8 +32,7 @@ int main() {
     while (fscanf(fp, "%d %d %lf", &empNum, &shift, &wage) != EOF) {  // running a while loop till end of line
         for (int i = 0; i < shift; i++) {                             // we set i to 0 and run it shift number of times
             fscanf(fp, "%d", &hours);                                 // scan all the trailing hours
-            // printf("%d\n", hours);
-            sum += hours;  // getting the sum of all the sums for each empolyee
+            sum += hours;                                             // getting the sum of all the sums for each empolyee
         }
         // printf("Employee Number: %d\tShifts: %d\tWage: %.2lf\tGross Pay: $%.2lf\n", empNum, shift, wage, grossPay(hours, wage));
         printf("\t%d |\t\t%d | \t$%.2lf | \t%d | $%.2lf\n", empNum, shift, wage, sum, grossPay(sum, wage));  // output
