@@ -15,19 +15,20 @@ Pascal Triangle
 */
 
 int main() {
+    // var
     int size;
+
+    // input
     printf("Enter Size: ");
     scanf("%d", &size);
-    for (int i = 0; i <= size; i++) {
-        /*for (int k = 0; k <= (size - i); k++) {
-            printf(" ");
-        }*/
-        int value = 1;
-        for (int j = 0; j <= i; j++) {
-            printf("%d ", value);
+
+    for (int i = 0; i <= size; i++) {             // first loop
+        int value = 1;                            // starting the triangle
+        for (int j = 0; j <= i; j++) {            // second loop
+            printf("%d ", value);                 // base case
             value = (value * (i - j) / (j + 1));  // formula
         }
-        printf("\n");
+        printf("\n");  // new line
     }
     return 0;
 }

@@ -27,7 +27,9 @@ int main() {
     double wage;
     int sum = 0;
 
+    // header
     printf("Employee Number\t Shifts\t\tWage\tHours Worked Gross Pay\n------------------------------------------------------------------\n");
+
     // scanning
     while (fscanf(fp, "%d %d %lf", &empNum, &shift, &wage) != EOF) {  // running a while loop till end of line
         for (int i = 0; i < shift; i++) {                             // we set i to 0 and run it shift number of times
