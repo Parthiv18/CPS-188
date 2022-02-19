@@ -26,7 +26,7 @@ int main() {
         int value = 1;                            // starting the triangle
         for (int j = 0; j <= i; j++) {            // second loop
             printf("%d ", value);                 // base case
-            value = (value * (i - j) / (j + 1));  // formula
+            value = (value * (i - j) / (j + 1));  // formula [4th line for example => (value=1 => 1((i=3-j=0)/j=0+1)) (value=3 => 3((i=3-j=1)/j=1+1))) so on
         }
         printf("\n");  // new line
     }
