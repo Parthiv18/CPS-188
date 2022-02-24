@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void value(int *arr, int size) {
-    if (size == 1) {  // base case
+void value(int *arr, int size) {  // recursive function
+    if (size == 1) {              // base case
         return;
     }
     for (int i = 0; i < size - 1; i++) {
@@ -16,7 +16,7 @@ void value(int *arr, int size) {
 }
 
 int main() {
-    int *num;
+    int *num;                      // pointer
     for (int i = 0; i < 3; i++) {  // loop to get info
         printf("What are your values(3): ");
         scanf("%d", &num[i]);
