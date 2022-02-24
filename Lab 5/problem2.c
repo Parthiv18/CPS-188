@@ -1,8 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int main() {
-    
+double apogee() {
+    return 0;
+}
 
+double perigee() {
+    return 0;
+}
+
+int main() {
     return 0;
 }
