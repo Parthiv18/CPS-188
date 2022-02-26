@@ -36,10 +36,12 @@ int coldDay(double *arr, int total) {  // 2. cold day
     }
     return checker;
 }
-char date(int day, int pos) {  // date/month format [dd/mm/yy]
-    // getting day
-
-    // getting month
+char *date(int pos) {    // date/month format [dd/mm/yy]
+    int month = pos / 30.417;  // stores position
+    //int days = pos % 30;
+    //char *num[3];
+    char *months[12] = {"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};
+    return months[month];
 }
 int freeze(double *arr, int total) {  // 8. freeze days counter
     int counter = 0;
@@ -76,11 +78,10 @@ void output(int *day, double *sup, double *mich, double *huron, double *erie, do
 
     // 3. Find the [day and temp] for warmest and coldest
     // printf("Warmest Day (sup): %.2lf\nOn day: %d", sup[warmDay(sup,tempSize)], day[warmDay(sup,tempSize)]);
-    printf("\n\nWarmest Day (Sup): %.2lf\nWarmest Day (Mich): %.2lf\nWarmest Day (Huron): %.2lf\nWarmest Day (Erie): %.2lf\nWarmest Day (Ont): %.2lf\nWarmest Day (StrClr): %.2lf",
-           sup[warmDay(sup, tempSize)], mich[warmDay(mich, tempSize)], huron[warmDay(huron, tempSize)], erie[warmDay(erie, tempSize)], ont[warmDay(ont, tempSize)], stClr[warmDay(stClr, tempSize)]);
-    printf("\nColdest Day (Sup): %.2lf\nColdest Day (Mich): %.2lf\nColdest Day (Huron): %.2lf\nColdest Day (Erie): %.2lf\nColdest Day (Ont): %.2lf\nColdest Day (StrClr): %.2lf",
-           sup[coldDay(sup, tempSize)], mich[coldDay(mich, tempSize)], huron[coldDay(huron, tempSize)], erie[coldDay(erie, tempSize)], ont[coldDay(ont, tempSize)], stClr[coldDay(stClr, tempSize)]);
-
+    printf("\n\nWarmest Day (Sup): %.2lf Date: %s\nWarmest Day (Mich): %.2lf Date: %s\nWarmest Day (Huron): %.2lf Date: %s\nWarmest Day (Erie): %.2lf Date: %s\nWarmest Day (Ont): %.2lf Date: %s\nWarmest Day (StrClr): %.2lf Date: %s",
+           sup[warmDay(sup, tempSize)], date(day[warmDay(sup, tempSize)]), mich[warmDay(mich, tempSize)], date(day[warmDay(mich, tempSize)]), huron[warmDay(huron, tempSize)], date(day[warmDay(mich, tempSize)]), erie[warmDay(erie, tempSize)], date(day[warmDay(erie, tempSize)]), ont[warmDay(ont, tempSize)], date(day[warmDay(ont, tempSize)]), stClr[warmDay(stClr, tempSize)], date(day[warmDay(stClr, tempSize)]));
+    printf("\n\nWarmest Day (Sup): %.2lf Date: %s\nWarmest Day (Mich): %.2lf Date: %s\nWarmest Day (Huron): %.2lf Date: %s\nWarmest Day (Erie): %.2lf Date: %s\nWarmest Day (Ont): %.2lf Date: %s\nWarmest Day (StrClr): %.2lf Date: %s",
+           sup[coldDay(sup, tempSize)], date(day[coldDay(sup, tempSize)]), mich[coldDay(mich, tempSize)], date(day[coldDay(mich, tempSize)]), huron[coldDay(huron, tempSize)], date(day[coldDay(mich, tempSize)]), erie[coldDay(erie, tempSize)], date(day[coldDay(erie, tempSize)]), ont[coldDay(ont, tempSize)], date(day[coldDay(ont, tempSize)]), stClr[coldDay(stClr, tempSize)], date(day[coldDay(stClr, tempSize)]));
     // 4. Find warmest and coldest day overall for all lakes
 
     // 5. Summer Average [yet to do -> warmest to coolest]
