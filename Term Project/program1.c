@@ -11,6 +11,9 @@ double avg(double *arr, int start, int end) {  // 1/5/6/7 Average
     }
     return sum / counter;  // formula
 }
+double totalAvg(double sum, int total) {
+    return sum / total;
+}
 double warmDay(double *arr, int total) {  // 2. warm day
     double warm = arr[0];
     for (int i = 1; i < total; i++) {
@@ -72,7 +75,8 @@ int main() {
     // 1. Average
     printf("Average Temp (Sup): %.2lf\nAverage Temp (Mich): %.2lf\nAverage Temp (Huron): %.2lf\nAverage Temp (Erie): %.2lf\nAverage Temp (Ont): %.2lf\nAverage Temp (StrClr): %.2lf",
            avg(sup, 0, tempSize), avg(mich, 0, tempSize), avg(huron, 0, tempSize), avg(erie, 0, tempSize), avg(ont, 0, tempSize), avg(stClr, 0, tempSize));
-
+    double lakeSum = avg(sup, 0, tempSize) + avg(mich, 0, tempSize) + avg(huron, 0, tempSize) + avg(erie, 0, tempSize) + avg(ont, 0, tempSize) + avg(stClr, 0, tempSize);
+    printf("\nTotal Avg: %.2lf", totalAvg(lakeSum, 6));
     // 2. Warm and Cold Temp
     printf("\n\nWarmest Day (Sup): %.2lf\nWarmest Day (Mich): %.2lf\nWarmest Day (Huron): %.2lf\nWarmest Day (Erie): %.2lf\nWarmest Day (Ont): %.2lf\nWarmest Day (StrClr): %.2lf",
            warmDay(sup, tempSize), warmDay(mich, tempSize), warmDay(huron, tempSize), warmDay(erie, tempSize), warmDay(ont, tempSize), warmDay(stClr, tempSize));
