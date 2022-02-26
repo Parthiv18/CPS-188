@@ -73,13 +73,23 @@ int main() {
     printf("Average Temp (Sup): %.2lf\nAverage Temp (Mich): %.2lf\nAverage Temp (Huron): %.2lf\nAverage Temp (Erie): %.2lf\nAverage Temp (Ont): %.2lf\nAverage Temp (StrClr): %.2lf",
            avg(sup, 0, tempSize), avg(mich, 0, tempSize), avg(huron, 0, tempSize), avg(erie, 0, tempSize), avg(ont, 0, tempSize), avg(stClr, 0, tempSize));
 
-    // 2.
-    // 2.
-    // 2.
-    // 2.
-    // 2.
-    // 2.
-    // 2.
+    // 2. Warm and Cold Temp
+    printf("\n\nWarmest Day (Sup): %.2lf\nWarmest Day (Mich): %.2lf\nWarmest Day (Huron): %.2lf\nWarmest Day (Erie): %.2lf\nWarmest Day (Ont): %.2lf\nWarmest Day (StrClr): %.2lf",
+           warmDay(sup, tempSize), warmDay(mich, tempSize), warmDay(huron, tempSize), warmDay(erie, tempSize), warmDay(ont, tempSize), warmDay(stClr, tempSize));
+    printf("\nColdest Day (Sup): %.2lf\nColdest Day (Mich): %.2lf\nColdest Day (Huron): %.2lf\nColdest Day (Erie): %.2lf\nColdest Day (Ont): %.2lf\nColdest Day (StrClr): %.2lf",
+           coldDay(sup, tempSize), coldDay(mich, tempSize), coldDay(huron, tempSize), coldDay(erie, tempSize), coldDay(ont, tempSize), coldDay(stClr, tempSize));
+    // 3. Find the day for warmest and coldest
+    // 4. Find warmest day overall
+    // 5. Summer Average [yet to do -> warmest to coolest]
+    printf("\n\nSummer Average (Sup): %.2lf\nSummer Average (Mich): %.2lf\nSummer Average (Huron): %.2lf\nSummer Average (Erie): %.2lf\nSummer Average (Ont): %.2lf\nSummer Average (StrClr): %.2lf",
+           avg(sup, 172, 265), avg(mich, 172, 265), avg(huron, 172, 265), avg(erie, 172, 265), avg(ont, 172, 265), avg(stClr, 172, 265));
+    // 6. Winter Average [yet to do -> warmest to coolest]
+    printf("\nWinter Average (Sup): %.2lf\nWinter Average (Mich): %.2lf\nWinter Average (Huron): %.2lf\nWinter Average (Erie): %.2lf\nWinter Average (Ont): %.2lf\nWinter Average (StrClr): %.2lf",
+           avg(sup, 1, 79) + avg(sup, 355, 365), avg(mich, 1, 79) + avg(mich, 355, 365), avg(huron, 1, 79) + avg(huron, 355, 365), avg(erie, 1, 79) + avg(erie, 355, 365), avg(ont, 1, 79) + avg(ont, 355, 365), avg(stClr, 1, 79) + avg(stClr, 355, 365));
+    // 7. Swimming
+    // 8. Freezing
+    printf("\n\nFrozen Lake (Sup): %.2lf\nFrozen Lake (Mich): %.2lf\nFrozen Lake (Huron): %.2lf\nFrozen Lake (Erie): %.2lf\nFrozen Lake (Ont): %.2lf\nFrozen Lake (StrClr): %.2lf",
+           freeze(sup, tempSize), freeze(mich, tempSize), freeze(huron, tempSize), freeze(erie, tempSize), freeze(ont, tempSize), freeze(stClr, tempSize));
 
     fclose(fp);
 
