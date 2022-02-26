@@ -69,8 +69,17 @@ int main() {
     // Header
     // printf("Lake\tAverage Temp\tWarmest Weather (date/month)\tColdest Weather (date/month)\tSummer Average\tWinter Average");
 
-    // 1. average output
-    printf("Average Temp: %.5lf\n", avg(sup, 0, tempSize));
+    // 1. Average
+    printf("Average Temp (Sup): %.2lf\nAverage Temp (Mich): %.2lf\nAverage Temp (Huron): %.2lf\nAverage Temp (Erie): %.2lf\nAverage Temp (Ont): %.2lf\nAverage Temp (StrClr): %.2lf",
+           avg(sup, 0, tempSize), avg(mich, 0, tempSize), avg(huron, 0, tempSize), avg(erie, 0, tempSize), avg(ont, 0, tempSize), avg(stClr, 0, tempSize));
+
+    // 2.
+    // 2.
+    // 2.
+    // 2.
+    // 2.
+    // 2.
+    // 2.
 
     fclose(fp);
 
