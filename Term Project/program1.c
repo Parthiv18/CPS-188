@@ -3,7 +3,7 @@
 #include <stdlib.h>
 
 double avg(double *arr, int start, int end) {  // 1/5/6/7 Average
-    double sum;
+    double sum = 0;
     int counter = 0;
     for (int i = start; i < end; i++) {  // loop to rundown total
         sum += arr[i];                   // add up values
@@ -88,7 +88,7 @@ int main() {
            avg(sup, 1, 79) + avg(sup, 355, 365), avg(mich, 1, 79) + avg(mich, 355, 365), avg(huron, 1, 79) + avg(huron, 355, 365), avg(erie, 1, 79) + avg(erie, 355, 365), avg(ont, 1, 79) + avg(ont, 355, 365), avg(stClr, 1, 79) + avg(stClr, 355, 365));
     // 7. Swimming
     // 8. Freezing
-    printf("\n\nFrozen Lake (Sup): %.2lf\nFrozen Lake (Mich): %.2lf\nFrozen Lake (Huron): %.2lf\nFrozen Lake (Erie): %.2lf\nFrozen Lake (Ont): %.2lf\nFrozen Lake (StrClr): %.2lf",
+    printf("\n\nFrozen Lake (Sup): %d\nFrozen Lake (Mich): %d\nFrozen Lake (Huron): %d\nFrozen Lake (Erie): %d\nFrozen Lake (Ont): %d\nFrozen Lake (StrClr): %d",
            freeze(sup, tempSize), freeze(mich, tempSize), freeze(huron, tempSize), freeze(erie, tempSize), freeze(ont, tempSize), freeze(stClr, tempSize));
 
     fclose(fp);
