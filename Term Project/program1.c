@@ -70,7 +70,7 @@ int main() {
     // printf("Lake\tAverage Temp\tWarmest Weather (date/month)\tColdest Weather (date/month)\tSummer Average\tWinter Average");
 
     // 1. average output
-    printf("Average Temp: %.5lf\n", avg(ont, 0, tempSize));
+    printf("Average Temp: %.5lf\n", avg(sup, 0, tempSize));
 
     fclose(fp);
 
