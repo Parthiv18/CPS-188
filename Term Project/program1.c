@@ -77,13 +77,13 @@ int main() {
            avg(sup, 0, tempSize), avg(mich, 0, tempSize), avg(huron, 0, tempSize), avg(erie, 0, tempSize), avg(ont, 0, tempSize), avg(stClr, 0, tempSize));
     double lakeSum = avg(sup, 0, tempSize) + avg(mich, 0, tempSize) + avg(huron, 0, tempSize) + avg(erie, 0, tempSize) + avg(ont, 0, tempSize) + avg(stClr, 0, tempSize);
     printf("\nTotal Avg: %.2lf", totalAvg(lakeSum, 6));
-    // 2. Warm and Cold Temp
+    // 2. Which lake is warmest and coldest [read more] 
+    // 3. Find the [day and temp] for warmest and coldest
     printf("\n\nWarmest Day (Sup): %.2lf\nWarmest Day (Mich): %.2lf\nWarmest Day (Huron): %.2lf\nWarmest Day (Erie): %.2lf\nWarmest Day (Ont): %.2lf\nWarmest Day (StrClr): %.2lf",
            warmDay(sup, tempSize), warmDay(mich, tempSize), warmDay(huron, tempSize), warmDay(erie, tempSize), warmDay(ont, tempSize), warmDay(stClr, tempSize));
     printf("\nColdest Day (Sup): %.2lf\nColdest Day (Mich): %.2lf\nColdest Day (Huron): %.2lf\nColdest Day (Erie): %.2lf\nColdest Day (Ont): %.2lf\nColdest Day (StrClr): %.2lf",
            coldDay(sup, tempSize), coldDay(mich, tempSize), coldDay(huron, tempSize), coldDay(erie, tempSize), coldDay(ont, tempSize), coldDay(stClr, tempSize));
-    // 3. Find the day for warmest and coldest
-    // 4. Find warmest day overall
+    // 4. Find warmest and coldest day overall for all lakes
     // 5. Summer Average [yet to do -> warmest to coolest]
     printf("\n\nSummer Average (Sup): %.2lf\nSummer Average (Mich): %.2lf\nSummer Average (Huron): %.2lf\nSummer Average (Erie): %.2lf\nSummer Average (Ont): %.2lf\nSummer Average (StrClr): %.2lf",
            avg(sup, 172, 265), avg(mich, 172, 265), avg(huron, 172, 265), avg(erie, 172, 265), avg(ont, 172, 265), avg(stClr, 172, 265));
