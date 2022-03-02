@@ -1,0 +1,1 @@
+    value(arr, size - 1);  // going down array

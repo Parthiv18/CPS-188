@@ -1,29 +1,21 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-double perigee(int choice, double speed) {  // minimum time => d=st
-    if (choice == 1) {                      // conditions to get the accurate time
-        return 363104 / speed;
-    } else if (choice == 2) {
-        return 54600000 / speed;
-    } else if (choice == 3) {
-        return 38000000 / speed;
-    } else {
-        return 0;
-    }
+void moon(double speed) {  // mmoon function
+    double min = 363104 / speed;
+    double max = 405696 / speed;
+    printf("Earth to Moon -> Time (perigee): %.2lf h | Time (apogee): %.2lf h\n\n", min, max);  // output
 }
-double apogee(int choice, double speed) {  // maximum time => d=st
-    if (choice == 1) {                     // conditions to get the accurate time
-        return 405696 / speed;
-    } else if (choice == 2) {
-        return 401000000 / speed;
-    } else if (choice == 3) {
-        return 261000000 / speed;
-    } else {
-        return 0;
-    }
+double mars(double speed) {  // mars function
+    double min = 54600000 / speed;
+    double max = 401000000 / speed;
+    printf("Earth to Mars -> Time (perigee): %.2lf h | Time (apogee): %.2lf h\n\n", min, max);  // output
 }
-
+double venus(double speed) {  // venus function
+    double min = 38000000 / speed;
+    double max = 261000000 / speed;
+    printf("Earth to Venus -> Time (perigee): %.2lf h | Time (apogee): %.2lf h\n\n", min, max);  // output
+}
 int main() {
     int choice;
     do {
@@ -39,8 +31,15 @@ int main() {
         printf("Enter Speed: ");
         scanf("%lf", &speed);
 
-        printf("Time (perigee): %.2lf h\nTime (apogee): %.2lf h\n\n", perigee(choice, speed), apogee(choice, speed));  // output
-
+        if (choice == 1) {  // condition to call moon function
+            moon(speed);
+        } else if (choice == 2) {  // condition to call mars function
+            mars(speed);
+        } else if (choice == 3) {  // condition to call venus function
+            venus(speed);
+        } else {  // if none are chosen
+            printf("Please Enter a Valid Choice");
+        }
     } while (choice != 4);  // keep going until choice is exit program
 
     return 0;
