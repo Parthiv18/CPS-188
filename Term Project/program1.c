@@ -2,6 +2,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+//#define arrTotal = 365;
+
 double avg(double *arr, int start, int end) {  // 1/5/6/7 Average
     double sum = 0;
     int counter = 0;
@@ -42,6 +44,15 @@ char *date(int pos) {          // date/month format [dd/mm/yy]
     // char *num[3];
     char *months[12] = {"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};
     return months[month];
+}
+int swimming(double *arr, int total) {  // 7. Swimming
+    int counter = 0;
+    for (int i = 0; i < total; i++) {
+        if (arr[i] > 20) {
+            counter++;
+        }
+    }
+    return counter;
 }
 int freeze(double *arr, int total) {  // 8. freeze days counter
     int counter = 0;
