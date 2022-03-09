@@ -42,7 +42,7 @@ char *date(int pos) {          // date/month format [dd/mm/yy]
     int month = pos / 30.417;  // stores position
     // int days = pos % 30;
     // char *num[3];
-    char *months[12] = {"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};
+    char *months[12] = {"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};  // make this enum
     return months[month];
 }
 int swimming(double *arr, int total) {  // 7. Swimming
