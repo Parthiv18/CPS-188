@@ -10,13 +10,14 @@ int main() {
     char line[1000];
     FILE *fp = fopen("data.txt", "r");
 
-    int size;
-    double min;
-    double max;
-    // double num[size];
+    double *arr;
 
     for (int i = 0; fscanf(fp, "%c", &line) != EOF; i++) {
-        fscanf(fp, "%d  %lf %lf", &size, &min, &max);
-        printf("%lf", min);
+        fscanf(fp, "%lf. ", &arr[i]);
+        printf("%.1lf ", arr[i]);
+    }
+    //printf("%lf", arr[0]);
+    for (int i = 2; i < 7; i++) {  // change 7 accordingly after
+        printf("%.2lf\n", formula(arr[0], arr[1], arr[i], 0, 7));
     }
 }
