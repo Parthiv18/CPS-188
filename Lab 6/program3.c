@@ -31,6 +31,19 @@ char pop(char stack[], /* input/output - the stack */
 int main(void) {
     char s[STACK_SIZE];
     int s_top = -1;  // stack is empty
+    
+    int asciiVal = 65;
+    for (int i = 0; i < STACK_SIZE; i++) {
+        char c = asciiVal;
+        push(s, c, &s_top, STACK_SIZE);
+        printf("%c ", s[i]);
+        asciiVal++;
+    }
+    printf("\n");
+    pop(s, &s_top);
+    for (int i = 0; i < STACK_SIZE; i++) {
+        printf("%c ", s[i]);
+    }
 
     /* complete the program here */
 
