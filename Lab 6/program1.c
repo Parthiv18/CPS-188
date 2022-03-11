@@ -7,17 +7,22 @@ double formula(double min, double max, double xi, double xlow, double xhigh) {
 }
 
 int main() {
-    char line[1000];
-    FILE *fp = fopen("data.txt", "r");
+    FILE *fp;
+    fp = fopen("data.txt", "r");
+    int start;
+    double min;
+    double max;
+    double *num;
 
-    double *arr;
+    fscanf(fp, "%d", &start);
+    fscanf(fp, "%lf", &min);
+    fscanf(fp, "%lf", &max);
 
-    for (int i = 0; fscanf(fp, "%c", &line) != EOF; i++) {
-        fscanf(fp, "%lf. ", &arr[i]);
-        printf("%.1lf ", arr[i]);
-    }
-    //printf("%lf", arr[0]);
-    for (int i = 2; i < 7; i++) {  // change 7 accordingly after
-        printf("%.2lf\n", formula(arr[0], arr[1], arr[i], 0, 7));
+    // printf("%d %.1lf %.1lf\n", start, min, max);
+
+    for (int i = 3; i < start + 3; i++) {
+        fscanf(fp, "%lf ", &num[i]);
+        // printf("%.1lf ", num[i]);
+        printf("%.1lf ", formula(min, max, num[i], 0, start));
     }
 }
