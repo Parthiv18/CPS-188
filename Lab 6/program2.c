@@ -7,13 +7,31 @@
 // Post: Returns the subscript k of the smallest element in the subarray;
 // i.e., list[k] <= list[i] for all i in the subarray
 int get_min_range(int list[], int first, int last) {
-    int counter = 0;
-    for (int i = first; i < last; i++) {
-        if (list[0] > list[i]) {
-            counter = i;
+    /*
+            4 5 2 1
+            min = 0
+            for loop until end of list + 1
+                if (list[0] (4) <= list[min] (0) is (4))
+                    min = i (in this case min=0)
+            another run
+                if (list[1] (5) <= list[min] (0) is 4)
+                    min = i (in this case min=0)
+            another run
+                if (list[2] (2) <= list[min] (0) is 4)
+                    min = i (in this case min=2)
+            another run
+                if (list[3] (1) <= list[min] (2) is 2)
+                    min = i (in this case min=3)
+    */
+
+    int min = first;
+    for (int i = first + 1; i < last + 1; i++) {
+        // condittion => if list[i] is < the new minimum
+        if (list[i] <= list[min]) {
+            min = i;  // new index of min element
         }
     }
-    return counter;
+    return min;
 }
 
 // sorts the data in array list
