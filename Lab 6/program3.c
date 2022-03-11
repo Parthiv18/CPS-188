@@ -40,9 +40,8 @@ int main(void) {
         asciiVal++;
     }
     printf("\n");
-    //s[] = pop(s, &s_top);
+    s[3] = pop(s, &s_top);
     for (int i = 0; i < STACK_SIZE; i++) {        
-        s[0] = pop(s, &s_top);
         printf("%c ", s[i]);
     }
 
