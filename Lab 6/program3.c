@@ -40,7 +40,7 @@ int main(void) {
         asciiVal++;
     }
     printf("\n");
-    s[3] = pop(s, &s_top);
+    s[0] = pop(s, &s_top);
     for (int i = 0; i < STACK_SIZE; i++) {        
         printf("%c ", s[i]);
     }

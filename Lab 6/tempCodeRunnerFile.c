@@ -1,1 +1,2 @@
-checker
+
+        char c = asciiVal;

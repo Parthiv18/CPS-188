@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-// make enum
+// make enumd
 
 double avg(double *arr, int start, int end) {  // 1/5/6/7 Average
     double sum = 0;
