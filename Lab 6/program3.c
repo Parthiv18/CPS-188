@@ -32,18 +32,18 @@ int main(void) {
     char s[STACK_SIZE];
     int s_top = -1;  // stack is empty
 
-    int asciiVal = 65;
-    for (int i = 0; i < STACK_SIZE; i++) {
-        char c = asciiVal;
-        push(s, c, &s_top, STACK_SIZE);
+    int asciiVal = 65;                      // value of A in ascii terms
+    for (int i = 0; i < STACK_SIZE; i++) {  // looping stack size times too push to stack
+        char c = asciiVal;                  // int to char meaning int to ascii value
+        push(s, c, &s_top, STACK_SIZE);     // push elements to stack
         printf("%c ", s[i]);
-        asciiVal++;
+        asciiVal++;  // inc ascii element
     }
     printf("\n");
     s[0] = pop(s, &s_top);
-    for (int i = 0; i < STACK_SIZE; i++) {        
+    for (int i = 0; i < STACK_SIZE; i++) {
         printf("%c ", s[i]);
     }
 
-    return (0);
+    return 0;
 }
