@@ -1,9 +1,7 @@
 #include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
-
-// make enumd
-
+// make enum
 double avg(double *arr, int start, int end) {  // 1/5/6/7 Average
     double sum = 0;
     int counter = 0;
@@ -75,40 +73,39 @@ int getTextFileLine() {
     }
     return counter;
 }
-void question1(int *day, double *sup, double *mich, double *huron, double *erie, double *ont, double *stClr, int tempSize) {
+void question1To8(int *day, double *sup, double *mich, double *huron, double *erie, double *ont, double *stClr, int tempSize) {
     // 1/5/6 Average Questions
     printf("Lake Name\tAvg Temp\tSummer Avg\tWinter Avg\n");
-    printf("Sup\t\t%.2lf\t\t%.2lf\t\t%.2lf\n", avg(sup, 0, tempSize), avg(sup, 172, 265), avg(sup, 1, 79) + avg(sup, 355, 365));
-    printf("Mich\t\t%.2lf\t\t%.2lf\t\t%.2lf\n", avg(mich, 0, tempSize), avg(mich, 172, 265), avg(mich, 1, 79) + avg(mich, 355, 365));
-    printf("Huron\t\t%.2lf\t\t%.2lf\t\t%.2lf\n", avg(huron, 0, tempSize), avg(huron, 172, 265), avg(huron, 1, 79) + avg(huron, 355, 365));
-    printf("Erie\t\t%.2lf\t\t%.2lf\t\t%.2lf\n", avg(erie, 0, tempSize), avg(erie, 172, 265), avg(erie, 1, 79) + avg(erie, 355, 365));
-    printf("Ont\t\t%.2lf\t\t%.2lf\t\t%.2lf\n", avg(ont, 0, tempSize), avg(ont, 172, 265), avg(ont, 1, 79) + avg(ont, 355, 365));
-    printf("StClr\t\t%.2lf\t\t%.2lf\t\t%.2lf\n", avg(stClr, 0, tempSize), avg(stClr, 172, 265), avg(stClr, 1, 79) + avg(stClr, 355, 365));
+    printf("Sup.\t\t%.2lf\t\t%.2lf\t\t%.2lf\n", avg(sup, 0, tempSize), avg(sup, 172, 265), avg(sup, 1, 79) + avg(sup, 355, 365));
+    printf("Mich.\t\t%.2lf\t\t%.2lf\t\t%.2lf\n", avg(mich, 0, tempSize), avg(mich, 172, 265), avg(mich, 1, 79) + avg(mich, 355, 365));
+    printf("Huron.\t\t%.2lf\t\t%.2lf\t\t%.2lf\n", avg(huron, 0, tempSize), avg(huron, 172, 265), avg(huron, 1, 79) + avg(huron, 355, 365));
+    printf("Erie.\t\t%.2lf\t\t%.2lf\t\t%.2lf\n", avg(erie, 0, tempSize), avg(erie, 172, 265), avg(erie, 1, 79) + avg(erie, 355, 365));
+    printf("Ont.\t\t%.2lf\t\t%.2lf\t\t%.2lf\n", avg(ont, 0, tempSize), avg(ont, 172, 265), avg(ont, 1, 79) + avg(ont, 355, 365));
+    printf("StClr.\t\t%.2lf\t\t%.2lf\t\t%.2lf\n", avg(stClr, 0, tempSize), avg(stClr, 172, 265), avg(stClr, 1, 79) + avg(stClr, 355, 365));
     // Total
     double lakeSum = avg(sup, 0, tempSize) + avg(mich, 0, tempSize) + avg(huron, 0, tempSize) + avg(erie, 0, tempSize) + avg(ont, 0, tempSize) + avg(stClr, 0, tempSize);
-    printf("\nTotal Avg: %.2lf\n", totalAvg(lakeSum, 6));
+    printf("\nTotal Avg: %.2lf\n\n", totalAvg(lakeSum, 6));
+    // 2. Which lake is warmest and coldest based on avg [read more]
+
     // Warm and Cold QUestions
     printf("Lake Name\tWarmest Day\tDate (Warm)\tColdest Day\tDate (cold)\n");
-    printf("Sup\t\t%.2lf\t\t%s\t\t%.2lf\t\t%s\n", sup[warmDay(sup, tempSize)], date(day[warmDay(sup, tempSize)]), sup[coldDay(sup, tempSize)], date(day[coldDay(sup, tempSize)]));
-    printf("Mich\t\t%.2lf\t\t%s\t\t%.2lf\t\t%s\n", mich[warmDay(mich, tempSize)], date(day[warmDay(mich, tempSize)]), mich[coldDay(mich, tempSize)], date(day[coldDay(mich, tempSize)]));
-    printf("Huron\t\t%.2lf\t\t%s\t\t%.2lf\t\t%s\n", huron[warmDay(huron, tempSize)], date(day[warmDay(huron, tempSize)]), huron[coldDay(huron, tempSize)], date(day[coldDay(huron, tempSize)]));
-    printf("Erie\t\t%.2lf\t\t%s\t\t%.2lf\t\t%s\n", erie[warmDay(erie, tempSize)], date(day[warmDay(erie, tempSize)]), erie[coldDay(erie, tempSize)], date(day[coldDay(erie, tempSize)]));
-    printf("Ont\t\t%.2lf\t\t%s\t\t%.2lf\t\t%s\n", ont[warmDay(ont, tempSize)], date(day[warmDay(ont, tempSize)]), ont[coldDay(ont, tempSize)], date(day[coldDay(ont, tempSize)]));
-    printf("StClr\t\t%.2lf\t\t%s\t\t%.2lf\t\t%s\n", stClr[warmDay(stClr, tempSize)], date(day[warmDay(stClr, tempSize)]), stClr[coldDay(stClr, tempSize)], date(day[coldDay(stClr, tempSize)]));
+    printf("Sup.\t\t%.2lf\t\t%s\t\t%.2lf\t\t%s\n", sup[warmDay(sup, tempSize)], date(day[warmDay(sup, tempSize)]), sup[coldDay(sup, tempSize)], date(day[coldDay(sup, tempSize)]));
+    printf("Mich.\t\t%.2lf\t\t%s\t\t%.2lf\t\t%s\n", mich[warmDay(mich, tempSize)], date(day[warmDay(mich, tempSize)]), mich[coldDay(mich, tempSize)], date(day[coldDay(mich, tempSize)]));
+    printf("Huron.\t\t%.2lf\t\t%s\t\t%.2lf\t\t%s\n", huron[warmDay(huron, tempSize)], date(day[warmDay(huron, tempSize)]), huron[coldDay(huron, tempSize)], date(day[coldDay(huron, tempSize)]));
+    printf("Erie.\t\t%.2lf\t\t%s\t\t%.2lf\t\t%s\n", erie[warmDay(erie, tempSize)], date(day[warmDay(erie, tempSize)]), erie[coldDay(erie, tempSize)], date(day[coldDay(erie, tempSize)]));
+    printf("Ont.\t\t%.2lf\t\t%s\t\t%.2lf\t\t%s\n", ont[warmDay(ont, tempSize)], date(day[warmDay(ont, tempSize)]), ont[coldDay(ont, tempSize)], date(day[coldDay(ont, tempSize)]));
+    printf("StClr.\t\t%.2lf\t\t%s\t\t%.2lf\t\t%s\n", stClr[warmDay(stClr, tempSize)], date(day[warmDay(stClr, tempSize)]), stClr[coldDay(stClr, tempSize)], date(day[coldDay(stClr, tempSize)]));
     // 4. Find warmest and coldest day overall for all lakes
     printf("\nWarmmest And Coldest Day Overall: Yet to do\n");
 
     // 8. Freezing
     printf("Lake Name\tSwimming Total Days\tFreezing Total Days\n");
-    printf("Sup\t\t%d\t\t\t%d\n", swimming(sup, tempSize), freeze(sup, tempSize));
-    printf("Mich\t\t%d\t\t\t%d\n", swimming(mich, tempSize), freeze(mich, tempSize));
-    printf("Huron\t\t%d\t\t\t%d\n", swimming(huron, tempSize), freeze(huron, tempSize));
-    printf("Erie\t\t%d\t\t\t%d\n", swimming(erie, tempSize), freeze(erie, tempSize));
-    printf("Ont\t\t%d\t\t\t%d\n", swimming(ont, tempSize), freeze(ont, tempSize));
-    printf("StClr\t\t%d\t\t\t%d\n", swimming(stClr, tempSize), freeze(stClr, tempSize));
-}
-void question2() {
-    // 2. Which lake is warmest and coldest [read more]
+    printf("Sup.\t\t%d\t\t\t%d\n", swimming(sup, tempSize), freeze(sup, tempSize));
+    printf("Mich.\t\t%d\t\t\t%d\n", swimming(mich, tempSize), freeze(mich, tempSize));
+    printf("Huron.\t\t%d\t\t\t%d\n", swimming(huron, tempSize), freeze(huron, tempSize));
+    printf("Erie.\t\t%d\t\t\t%d\n", swimming(erie, tempSize), freeze(erie, tempSize));
+    printf("Ont.\t\t%d\t\t\t%d\n", swimming(ont, tempSize), freeze(ont, tempSize));
+    printf("StClr.\t\t%d\t\t\t%d\n", swimming(stClr, tempSize), freeze(stClr, tempSize));
 }
 int main() {
     char line[1000];
@@ -126,9 +123,7 @@ int main() {
     }
     // Header
     // printf("Lake\tAverage Temp\tWarmest Weather (date/month)\tColdest Weather (date/month)\tSummer Average\tWinter Average");
-    question1(day, sup, mich, huron, erie, ont, stClr, tempSize);
-    question2();
-    question7();
+    question1To8(day, sup, mich, huron, erie, ont, stClr, tempSize);
 
     fclose(fp);
 
