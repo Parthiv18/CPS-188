@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-double min(double *arr, int size) {
+double min(double *arr, int size) {  // min formula
     double minVal = arr[0];
     for (int i = 1; i < size; i++) {
         if (arr[i] < minVal) {
@@ -11,7 +11,7 @@ double min(double *arr, int size) {
     }
     return minVal;
 }
-double max(double *arr, int size) {
+double max(double *arr, int size) {  // max formula
     double maxVal = arr[0];
     for (int i = 1; i < size; i++) {
         if (arr[i] > maxVal) {
@@ -31,17 +31,15 @@ int main() {
     int size;
     double low, high;
 
-    // getting info
-    fscanf(fp, "%d", &size);
-    fscanf(fp, "%lf", &low);
-    fscanf(fp, "%lf", &high);
-    double num[size];  // setting array to size
-
-    for (int i = 0; fscanf(fp, "%lf", &num[i]) != EOF; i++) {  // loop to run down until end of file
-        printf("%.1lf ", num[i]);                              // printing normal array
-    }
-    printf("\nNormalized Array\n");
-    for (int j = 0; j < size; j++) {
-        printf("%.1lf ", formula(low, high, num[j], min(num, size), max(num, size)));
+    while (fscanf(fp, "%d %lf %lf", &size, &low, &high) != EOF) {  // while loop to run scan
+        double num[size];                                          // assigning array to size given in data sheet
+        for (int i = 0; i < size; i++) {                           // running down size number of times
+            fscanf(fp, "%lf", &num[i]);                            // scanning values in array
+        }
+        printf("\nArray\t\tNormalized Array\n");                                             // header
+        for (int k = 0; k < size; k++) {                                                     // looping
+            printf("%.1lf \t\t", num[k]);                                                    // output
+            printf("%.1lf \n", formula(low, high, num[k], min(num, size), max(num, size)));  // output
+        }
     }
 }
