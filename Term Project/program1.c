@@ -100,18 +100,15 @@ void question1(int *day, double *sup, double *mich, double *huron, double *erie,
 
     // 8. Freezing
     printf("Lake Name\tSwimming Total Days\tFreezing Total Days\n");
-    printf("Sup\t\t%d\t\t\t%d\n", swimming(sup,tempSize),freeze(sup, tempSize));
-    printf("Mich\t\t%d\t\t\t%d\n", swimming(mich,tempSize),freeze(mich, tempSize));
-    printf("Huron\t\t%d\t\t\t%d\n", swimming(huron,tempSize),freeze(huron, tempSize));
-    printf("Erie\t\t%d\t\t\t%d\n", swimming(erie,tempSize),freeze(erie, tempSize));
-    printf("Ont\t\t%d\t\t\t%d\n", swimming(ont,tempSize),freeze(ont, tempSize));
-    printf("StClr\t\t%d\t\t\t%d\n", swimming(stClr,tempSize),freeze(stClr, tempSize));
+    printf("Sup\t\t%d\t\t\t%d\n", swimming(sup, tempSize), freeze(sup, tempSize));
+    printf("Mich\t\t%d\t\t\t%d\n", swimming(mich, tempSize), freeze(mich, tempSize));
+    printf("Huron\t\t%d\t\t\t%d\n", swimming(huron, tempSize), freeze(huron, tempSize));
+    printf("Erie\t\t%d\t\t\t%d\n", swimming(erie, tempSize), freeze(erie, tempSize));
+    printf("Ont\t\t%d\t\t\t%d\n", swimming(ont, tempSize), freeze(ont, tempSize));
+    printf("StClr\t\t%d\t\t\t%d\n", swimming(stClr, tempSize), freeze(stClr, tempSize));
 }
 void question2() {
     // 2. Which lake is warmest and coldest [read more]
-}
-void question7() {
-    // 7. Swimming
 }
 int main() {
     char line[1000];
