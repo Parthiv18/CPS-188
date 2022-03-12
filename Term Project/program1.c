@@ -75,20 +75,18 @@ int getTextFileLine() {
 }
 void question1To8(int *day, double *sup, double *mich, double *huron, double *erie, double *ont, double *stClr, int tempSize) {
     // 1/5/6 Average Questions
-    printf("Lake Name\tAvg Temp\tSummer Avg\tWinter Avg\n");
-    printf("Sup.\t\t%.2lf\t\t%.2lf\t\t%.2lf\n", avg(sup, 0, tempSize), avg(sup, 172, 265), avg(sup, 1, 79) + avg(sup, 355, 365));
+    printf("Lake Name\tAvg Temp\tSummer Avg\tWinter Avg\tTotal Avg\n");
+    double lakeSum = avg(sup, 0, tempSize) + avg(mich, 0, tempSize) + avg(huron, 0, tempSize) + avg(erie, 0, tempSize) + avg(ont, 0, tempSize) + avg(stClr, 0, tempSize);
+    printf("Sup.\t\t%.2lf\t\t%.2lf\t\t%.2lf\t\t%.2lf\n", avg(sup, 0, tempSize), avg(sup, 172, 265), avg(sup, 1, 79) + avg(sup, 355, 365), totalAvg(lakeSum, 6));
     printf("Mich.\t\t%.2lf\t\t%.2lf\t\t%.2lf\n", avg(mich, 0, tempSize), avg(mich, 172, 265), avg(mich, 1, 79) + avg(mich, 355, 365));
     printf("Huron.\t\t%.2lf\t\t%.2lf\t\t%.2lf\n", avg(huron, 0, tempSize), avg(huron, 172, 265), avg(huron, 1, 79) + avg(huron, 355, 365));
     printf("Erie.\t\t%.2lf\t\t%.2lf\t\t%.2lf\n", avg(erie, 0, tempSize), avg(erie, 172, 265), avg(erie, 1, 79) + avg(erie, 355, 365));
     printf("Ont.\t\t%.2lf\t\t%.2lf\t\t%.2lf\n", avg(ont, 0, tempSize), avg(ont, 172, 265), avg(ont, 1, 79) + avg(ont, 355, 365));
     printf("StClr.\t\t%.2lf\t\t%.2lf\t\t%.2lf\n", avg(stClr, 0, tempSize), avg(stClr, 172, 265), avg(stClr, 1, 79) + avg(stClr, 355, 365));
-    // Total
-    double lakeSum = avg(sup, 0, tempSize) + avg(mich, 0, tempSize) + avg(huron, 0, tempSize) + avg(erie, 0, tempSize) + avg(ont, 0, tempSize) + avg(stClr, 0, tempSize);
-    printf("\nTotal Avg: %.2lf\n\n", totalAvg(lakeSum, 6));
     // 2. Which lake is warmest and coldest based on avg [read more]
 
     // Warm and Cold QUestions
-    printf("Lake Name\tWarmest Day\tDate (Warm)\tColdest Day\tDate (cold)\n");
+    printf("\nLake Name\tWarmest Day\tDate (Warm)\tColdest Day\tDate (cold)\n");
     printf("Sup.\t\t%.2lf\t\t%s\t\t%.2lf\t\t%s\n", sup[warmDay(sup, tempSize)], date(day[warmDay(sup, tempSize)]), sup[coldDay(sup, tempSize)], date(day[coldDay(sup, tempSize)]));
     printf("Mich.\t\t%.2lf\t\t%s\t\t%.2lf\t\t%s\n", mich[warmDay(mich, tempSize)], date(day[warmDay(mich, tempSize)]), mich[coldDay(mich, tempSize)], date(day[coldDay(mich, tempSize)]));
     printf("Huron.\t\t%.2lf\t\t%s\t\t%.2lf\t\t%s\n", huron[warmDay(huron, tempSize)], date(day[warmDay(huron, tempSize)]), huron[coldDay(huron, tempSize)], date(day[coldDay(huron, tempSize)]));
