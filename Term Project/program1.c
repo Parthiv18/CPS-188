@@ -106,35 +106,46 @@ void question1To8(int *day, double *sup, double *mich, double *huron, double *er
     printf("Ont.\t\t%d\t\t\t%d\n", swimming(ont, tempSize), freeze(ont, tempSize));
     printf("StClr.\t\t%d\t\t\t%d\n", swimming(stClr, tempSize), freeze(stClr, tempSize));
 }
-/*question9(double *sup, double *mich, double *huron, double *erie, double *ont, double *stClr, int tempSize) {
-    printf("2019 Data\nLake Name\tAvg Temp\tSummer Avg\tWinter Avg\tTotal Avg\n");
-    double lakeSum = avg(sup, 0, tempSize) + avg(mich, 0, tempSize) + avg(huron, 0, tempSize) + avg(erie, 0, tempSize) + avg(ont, 0, tempSize) + avg(stClr, 0, tempSize);
-    printf("Sup.\t\t%.2lf\t\t%.2lf\t\t%.2lf\t\t%.2lf\n", avg(sup, 0, tempSize), avg(sup, 172, 265), avg(sup, 1, 79) + avg(sup, 355, 365), totalAvg(lakeSum, 6));
-    printf("Mich.\t\t%.2lf\t\t%.2lf\t\t%.2lf\n", avg(mich, 0, tempSize), avg(mich, 172, 265), avg(mich, 1, 79) + avg(mich, 355, 365));
-    printf("Huron.\t\t%.2lf\t\t%.2lf\t\t%.2lf\n", avg(huron, 0, tempSize), avg(huron, 172, 265), avg(huron, 1, 79) + avg(huron, 355, 365));
-    printf("Erie.\t\t%.2lf\t\t%.2lf\t\t%.2lf\n", avg(erie, 0, tempSize), avg(erie, 172, 265), avg(erie, 1, 79) + avg(erie, 355, 365));
-    printf("Ont.\t\t%.2lf\t\t%.2lf\t\t%.2lf\n", avg(ont, 0, tempSize), avg(ont, 172, 265), avg(ont, 1, 79) + avg(ont, 355, 365));
-    printf("StClr.\t\t%.2lf\t\t%.2lf\t\t%.2lf\n", avg(stClr, 0, tempSize), avg(stClr, 172, 265), avg(stClr, 1, 79) + avg(stClr, 355, 365));
-}*/
-int main() {
+void questionMain() {
     char line[1000];
     FILE *fp = fopen("q1-8Data.txt", "r");
-
     int tempSize = getTextFileLine();
-    // printf("%d\n", getTextFileLine());
 
     // getting info
     int year[tempSize], day[tempSize];
     double sup[tempSize], mich[tempSize], huron[tempSize], erie[tempSize], ont[tempSize], stClr[tempSize];
     for (int i = 0; fscanf(fp, "%c", &line) != EOF; i++) {                                                                           // loop to run down until end of file
         fscanf(fp, "%d %d %lf %lf %lf %lf %lf %lf", &year[i], &day[i], &sup[i], &mich[i], &huron[i], &erie[i], &ont[i], &stClr[i]);  // scanning inputs
-        // printf("%d : %.2lf\n", i, sup[i]);
     }
-    // Header
-    // printf("Lake\tAverage Temp\tWarmest Weather (date/month)\tColdest Weather (date/month)\tSummer Average\tWinter Average");
     question1To8(day, sup, mich, huron, erie, ont, stClr, tempSize);
-
     fclose(fp);
+}
+void question9(double *sup, double *mich, double *huron, double *erie, double *ont, double *stClr, int tempSize) {
+    printf("\n\t\t2019 Data\nLake Name\tAvg Temp\tTotal Avg\n");
+    double lakeSum = avg(sup, 0, tempSize) + avg(mich, 0, tempSize) + avg(huron, 0, tempSize) + avg(erie, 0, tempSize) + avg(ont, 0, tempSize) + avg(stClr, 0, tempSize);
+    printf("Sup.\t\t%.2lf\t\t%.2lf\n", avg(sup, 0, tempSize), totalAvg(lakeSum, 6));
+    printf("Mich.\t\t%.2lf\n", avg(mich, 0, tempSize));
+    printf("Huron.\t\t%.2lf\n", avg(huron, 0, tempSize));
+    printf("Erie.\t\t%.2lf\n", avg(erie, 0, tempSize));
+    printf("Ont.\t\t%.2lf\n", avg(ont, 0, tempSize));
+    printf("StClr.\t\t%.2lf\n", avg(stClr, 0, tempSize));
+}
+void question9Main() {
+    char line[1000];
+    FILE *fp = fopen("q9Data.txt", "r");
+    int tempSize = getTextFileLine();
 
+    // getting info
+    int year[tempSize], day[tempSize];
+    double sup[tempSize], mich[tempSize], huron[tempSize], erie[tempSize], ont[tempSize], stClr[tempSize];
+    for (int i = 0; fscanf(fp, "%c", &line) != EOF; i++) {                                                                           // loop to run down until end of file
+        fscanf(fp, "%d %d %lf %lf %lf %lf %lf %lf", &year[i], &day[i], &sup[i], &mich[i], &huron[i], &erie[i], &ont[i], &stClr[i]);  // scanning inputs
+    }
+    question9(sup, mich, huron, erie, ont, stClr, tempSize);
+    fclose(fp);
+}
+int main() {
+    questionMain();
+    question9Main();
     return 0;
 }
