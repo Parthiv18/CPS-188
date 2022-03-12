@@ -86,7 +86,7 @@ void question1To8(int *day, double *sup, double *mich, double *huron, double *er
     // 2. Which lake is warmest and coldest based on avg [read more]
     printf("\nQ2. Which lake is warmest and coldest based on avg: Yet to do\n");
 
-    // Warm and Cold QUestions
+    // Warm and Cold Questions
     printf("\nLake Name\tWarmest Day\tDate (Warm)\tColdest Day\tDate (cold)\n");
     printf("Sup.\t\t%.2lf\t\t%s\t\t%.2lf\t\t%s\n", sup[warmDay(sup, tempSize)], date(day[warmDay(sup, tempSize)]), sup[coldDay(sup, tempSize)], date(day[coldDay(sup, tempSize)]));
     printf("Mich.\t\t%.2lf\t\t%s\t\t%.2lf\t\t%s\n", mich[warmDay(mich, tempSize)], date(day[warmDay(mich, tempSize)]), mich[coldDay(mich, tempSize)], date(day[coldDay(mich, tempSize)]));
@@ -106,6 +106,16 @@ void question1To8(int *day, double *sup, double *mich, double *huron, double *er
     printf("Ont.\t\t%d\t\t\t%d\n", swimming(ont, tempSize), freeze(ont, tempSize));
     printf("StClr.\t\t%d\t\t\t%d\n", swimming(stClr, tempSize), freeze(stClr, tempSize));
 }
+/*question9(double *sup, double *mich, double *huron, double *erie, double *ont, double *stClr, int tempSize) {
+    printf("2019 Data\nLake Name\tAvg Temp\tSummer Avg\tWinter Avg\tTotal Avg\n");
+    double lakeSum = avg(sup, 0, tempSize) + avg(mich, 0, tempSize) + avg(huron, 0, tempSize) + avg(erie, 0, tempSize) + avg(ont, 0, tempSize) + avg(stClr, 0, tempSize);
+    printf("Sup.\t\t%.2lf\t\t%.2lf\t\t%.2lf\t\t%.2lf\n", avg(sup, 0, tempSize), avg(sup, 172, 265), avg(sup, 1, 79) + avg(sup, 355, 365), totalAvg(lakeSum, 6));
+    printf("Mich.\t\t%.2lf\t\t%.2lf\t\t%.2lf\n", avg(mich, 0, tempSize), avg(mich, 172, 265), avg(mich, 1, 79) + avg(mich, 355, 365));
+    printf("Huron.\t\t%.2lf\t\t%.2lf\t\t%.2lf\n", avg(huron, 0, tempSize), avg(huron, 172, 265), avg(huron, 1, 79) + avg(huron, 355, 365));
+    printf("Erie.\t\t%.2lf\t\t%.2lf\t\t%.2lf\n", avg(erie, 0, tempSize), avg(erie, 172, 265), avg(erie, 1, 79) + avg(erie, 355, 365));
+    printf("Ont.\t\t%.2lf\t\t%.2lf\t\t%.2lf\n", avg(ont, 0, tempSize), avg(ont, 172, 265), avg(ont, 1, 79) + avg(ont, 355, 365));
+    printf("StClr.\t\t%.2lf\t\t%.2lf\t\t%.2lf\n", avg(stClr, 0, tempSize), avg(stClr, 172, 265), avg(stClr, 1, 79) + avg(stClr, 355, 365));
+}*/
 int main() {
     char line[1000];
     FILE *fp = fopen("q1-8Data.txt", "r");
