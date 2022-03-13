@@ -40,8 +40,9 @@ int main(void) {
         asciiVal++;  // inc ascii element
     }
     printf("\n");
-    s[0] = pop(s, &s_top);
-    for (int i = 0; i < STACK_SIZE; i++) {
+    s[19] = pop(s, &s_top);                 // popping the last element
+    s[18] = pop(s, &s_top);                 // popping the last element
+    for (int i = 0; i < s_top + 1; i++) {  // looping s_top + 1 number of times to print the updated stack
         printf("%c ", s[i]);
     }
 
