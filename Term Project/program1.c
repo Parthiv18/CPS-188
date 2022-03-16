@@ -36,12 +36,13 @@ int coldDay(double *arr, int total) {  // 2. cold day
     }
     return checker;
 }
-char *date(int pos) {          // date/month format [dd/mm/yy]
-    int month = pos / 30.417;  // stores position
-    // int days = pos % 30;
-    // char *num[3];
+char *date(int pos) {                                                                                         // date/month format [dd/mm/yy]
+    int month = pos / 30.417;                                                                                 // stores position
     char *months[12] = {"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};  // make this enum
     return months[month];
+}
+int dateNum(int pos) {  // return the date
+    return pos % 30;
 }
 int swimming(double *arr, int total) {  // 7. Swimming
     int counter = 0;
@@ -88,12 +89,12 @@ void question1To8(int *day, double *sup, double *mich, double *huron, double *er
 
     // Warm and Cold Questions
     printf("\nLake Name\tWarmest Day\tDate (Warm)\tColdest Day\tDate (cold)\n");
-    printf("Sup.\t\t%.2lf\t\t%s\t\t%.2lf\t\t%s\n", sup[warmDay(sup, tempSize)], date(day[warmDay(sup, tempSize)]), sup[coldDay(sup, tempSize)], date(day[coldDay(sup, tempSize)]));
-    printf("Mich.\t\t%.2lf\t\t%s\t\t%.2lf\t\t%s\n", mich[warmDay(mich, tempSize)], date(day[warmDay(mich, tempSize)]), mich[coldDay(mich, tempSize)], date(day[coldDay(mich, tempSize)]));
-    printf("Huron.\t\t%.2lf\t\t%s\t\t%.2lf\t\t%s\n", huron[warmDay(huron, tempSize)], date(day[warmDay(huron, tempSize)]), huron[coldDay(huron, tempSize)], date(day[coldDay(huron, tempSize)]));
-    printf("Erie.\t\t%.2lf\t\t%s\t\t%.2lf\t\t%s\n", erie[warmDay(erie, tempSize)], date(day[warmDay(erie, tempSize)]), erie[coldDay(erie, tempSize)], date(day[coldDay(erie, tempSize)]));
-    printf("Ont.\t\t%.2lf\t\t%s\t\t%.2lf\t\t%s\n", ont[warmDay(ont, tempSize)], date(day[warmDay(ont, tempSize)]), ont[coldDay(ont, tempSize)], date(day[coldDay(ont, tempSize)]));
-    printf("StClr.\t\t%.2lf\t\t%s\t\t%.2lf\t\t%s\n", stClr[warmDay(stClr, tempSize)], date(day[warmDay(stClr, tempSize)]), stClr[coldDay(stClr, tempSize)], date(day[coldDay(stClr, tempSize)]));
+    printf("Sup.\t\t%.2lf\t\t%s %d\t\t%.2lf\t\t%s %d\n", sup[warmDay(sup, tempSize)], date(day[warmDay(sup, tempSize)]), dateNum(day[warmDay(sup, tempSize)]), sup[coldDay(sup, tempSize)], date(day[coldDay(sup, tempSize)]), dateNum(day[coldDay(sup, tempSize)]));
+    printf("Mich.\t\t%.2lf\t\t%s %d\t\t%.2lf\t\t%s %d\n", mich[warmDay(mich, tempSize)], date(day[warmDay(mich, tempSize)]), dateNum(day[warmDay(mich, tempSize)]), mich[coldDay(mich, tempSize)], date(day[coldDay(mich, tempSize)]), dateNum(day[coldDay(mich, tempSize)]));
+    printf("Huron.\t\t%.2lf\t\t%s %d\t\t%.2lf\t\t%s %d\n", huron[warmDay(huron, tempSize)], date(day[warmDay(huron, tempSize)]), dateNum(day[warmDay(huron, tempSize)]), huron[coldDay(huron, tempSize)], date(day[coldDay(huron, tempSize)]), dateNum(day[coldDay(huron, tempSize)]));
+    printf("Erie.\t\t%.2lf\t\t%s %d\t\t%.2lf\t\t%s %d\n", erie[warmDay(erie, tempSize)], date(day[warmDay(erie, tempSize)]), dateNum(day[warmDay(erie, tempSize)]), erie[coldDay(erie, tempSize)], date(day[coldDay(erie, tempSize)]), dateNum(day[coldDay(erie, tempSize)]));
+    printf("Ont.\t\t%.2lf\t\t%s %d\t\t%.2lf\t\t%s %d\n", ont[warmDay(ont, tempSize)], date(day[warmDay(ont, tempSize)]), dateNum(day[warmDay(ont, tempSize)]), ont[coldDay(ont, tempSize)], date(day[coldDay(ont, tempSize)]), dateNum(day[coldDay(ont, tempSize)]));
+    printf("StClr.\t\t%.2lf\t\t%s %d\t\t%.2lf\t\t%s %d\n", stClr[warmDay(stClr, tempSize)], date(day[warmDay(stClr, tempSize)]), dateNum(day[warmDay(stClr, tempSize)]), stClr[coldDay(stClr, tempSize)], date(day[coldDay(stClr, tempSize)]), dateNum(day[coldDay(stClr, tempSize)]));
     // 4. Find warmest and coldest day overall for all lakes
     printf("\nQ4. Warmmest And Coldest Day Overall: Yet to do\n");
 

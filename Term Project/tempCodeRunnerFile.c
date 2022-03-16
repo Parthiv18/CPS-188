@@ -1,2 +1,1 @@
-
-    return sum / total;
+e
