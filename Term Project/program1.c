@@ -9,7 +9,7 @@ double avg(double *arr, int start, int end) {  // 1/5/6/7 Average
         sum += arr[i];                   // add up values
         counter++;
     }
-    return sum / counter;  // formula
+    return sum / (counter);  // formula
 }
 double totalAvg(double sum, int total) {
     return sum / total;
@@ -85,7 +85,7 @@ void questionMain() {
     for (int i = 0; fscanf(fp, "%c", &line) != EOF; i++) {                                                                           // loop to run down until end of file
         fscanf(fp, "%d %d %lf %lf %lf %lf %lf %lf", &year[i], &day[i], &sup[i], &mich[i], &huron[i], &erie[i], &ont[i], &stClr[i]);  // scanning inputs
     }
-    
+
     // 1/5/6 Average Questions
     printf("Lake Name\tAvg Temp\tSummer Avg\tWinter Avg\tTotal Avg\n");
     double lakeSum = avg(sup, 0, tempSize) + avg(mich, 0, tempSize) + avg(huron, 0, tempSize) + avg(erie, 0, tempSize) + avg(ont, 0, tempSize) + avg(stClr, 0, tempSize);
