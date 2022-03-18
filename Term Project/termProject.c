@@ -109,8 +109,16 @@ int freeze(double *arr, int total) {  // 8. freeze days counter
     return counter;
 }
 /*Question 9*/
-int getTextFileLine() {
-    FILE *fp = fopen("q1-8Data.txt", "r");
+double compareDiff(double num1, double num2) {
+    if (num1 > num2) {
+        return (num1 - num2);
+    } else {
+        return (num2 - num1);
+    }
+}
+/*Getting Data*/
+int getTextFileLine(char *fileName) {
+    FILE *fp = fopen(fileName, "r");
     int checker;
     int counter = 1;
     int nonCounter = 1;
@@ -122,19 +130,26 @@ int getTextFileLine() {
     fclose(fp);
     return counter;
 }
-void dataFile2020(int *year, int *day, double *sup, double *mich, double *huron, double *erie, double *ont, double *stClr, char *fileName) {
+void dataFile(int *year, int *day, double *sup, double *mich, double *huron, double *erie, double *ont, double *stClr, char *fileName) {
     char line[1000];
     FILE *fp = fopen(fileName, "r");
-    for (int i = 0; i < getTextFileLine(); i++) {                                                                                    // loop to run down until end of file
+    for (int i = 0; i < getTextFileLine(fileName); i++) {                                                                            // loop to run down until end of file
         fscanf(fp, "%d %d %lf %lf %lf %lf %lf %lf", &year[i], &day[i], &sup[i], &mich[i], &huron[i], &erie[i], &ont[i], &stClr[i]);  // scanning inputs
     }
     fclose(fp);
 }
+/*Output*/
 void q18Output() {
-    int tempSize = getTextFileLine();
+    // 2022 data
+    int tempSize = getTextFileLine("q1-8Data.txt");
     int year[tempSize], day[tempSize];
     double sup[tempSize], mich[tempSize], huron[tempSize], erie[tempSize], ont[tempSize], stClr[tempSize];
-    dataFile2020(year, day, sup, mich, huron, erie, ont, stClr, "q1-8Data.txt");
+    dataFile(year, day, sup, mich, huron, erie, ont, stClr, "q1-8Data.txt");
+    // 2019 data
+    int tempSize2019 = getTextFileLine("q9Data.txt");
+    int year2019[tempSize2019], day2019[tempSize2019];
+    double sup2019[tempSize2019], mich2019[tempSize2019], huron2019[tempSize2019], erie2019[tempSize2019], ont2019[tempSize2019], stClr2019[tempSize2019];
+    dataFile(year2019, day2019, sup2019, mich2019, huron2019, erie2019, ont2019, stClr2019, "q9Data.txt");
 
     // Output [do q4 and q9]
     double lakeAvg = totalAvg(avg(sup, 0, tempSize), avg(mich, 0, tempSize), avg(huron, 0, tempSize), avg(erie, 0, tempSize), avg(ont, 0, tempSize), avg(stClr, 0, tempSize), 6);
@@ -147,11 +162,11 @@ void q18Output() {
     printf("StClr.\t\t%.2lf\t\t\t\t%s\n", avg(stClr, 0, tempSize), lakeStatus(avg(stClr, 0, tempSize), lakeAvg));
 
     printf("\n");
-    double arr[6] = {avg(sup, 0, tempSize), avg(mich, 0, tempSize), avg(huron, 0, tempSize), avg(erie, 0, tempSize), avg(ont, 0, tempSize), avg(stClr, 0, tempSize)};
-    int *posArr = sort(arr, 6);
+    // double arr[6] = {avg(sup, 0, tempSize), avg(mich, 0, tempSize), avg(huron, 0, tempSize), avg(erie, 0, tempSize), avg(ont, 0, tempSize), avg(stClr, 0, tempSize)};
+    /*int *posArr = sort(arr, 6);
     for (int i = 0; i < 6; i++) {
         printf("%.2lf ", arr[posArr[i]]);
-    }
+    }*/
 
     /*warmDay(sup, day, tempSize, "Sup.");
     coldDay(sup, day, tempSize, "Sup.");
@@ -164,15 +179,24 @@ void q18Output() {
     warmDay(ont, day, tempSize, "Ont.");
     coldDay(ont, day, tempSize, "Ont.");
     warmDay(stClr, day, tempSize, "StClr.");
-    coldDay(stClr, day, tempSize, "StClr.");*/
-
-    /*printf("\n\nLake Name\tSwimming Total Days\tFreezing Total Days\n");
+    coldDay(stClr, day, tempSize, "StClr.");
+    //question 7-8
+    printf("\n\nLake Name\tSwimming Total Days\tFreezing Total Days\n");
     printf("Sup.\t\t%d\t\t\t%d\n", swimming(sup, tempSize), freeze(sup, tempSize));
     printf("Mich.\t\t%d\t\t\t%d\n", swimming(mich, tempSize), freeze(mich, tempSize));
     printf("Huron.\t\t%d\t\t\t%d\n", swimming(huron, tempSize), freeze(huron, tempSize));
     printf("Erie.\t\t%d\t\t\t%d\n", swimming(erie, tempSize), freeze(erie, tempSize));
     printf("Ont.\t\t%d\t\t\t%d\n", swimming(ont, tempSize), freeze(ont, tempSize));
-    printf("StClr.\t\t%d\t\t\t%d\n", swimming(stClr, tempSize), freeze(stClr, tempSize));*/
+    printf("StClr.\t\t%d\t\t\t%d\n", swimming(stClr, tempSize), freeze(stClr, tempSize));
+    // question 9
+    printf("Lake\t\tAverage(2019)\t\tAverage(2020)\t\tDifference\tTotal Avg(2019)\t\tTotal Avg(2020)\t\tDifference\n");
+    double lakeAvg2019 = totalAvg(avg(sup2019, 0, tempSize), avg(mich2019, 0, tempSize), avg(huron2019, 0, tempSize), avg(erie2019, 0, tempSize), avg(ont2019, 0, tempSize), avg(stClr2019, 0, tempSize), 6);
+    printf("Sup.\t\t%.2lf\t\t\t%.2lf\t\t\t%.2lf\t\t%.2lf\t\t\t%.2lf\t\t\t%.2lf\n", avg(sup2019, 0, tempSize2019), avg(sup, 0, tempSize), compareDiff(avg(sup2019, 0, tempSize2019), avg(sup, 0, tempSize)), lakeAvg2019, lakeAvg, compareDiff(lakeAvg2019, lakeAvg));
+    printf("Mich.\t\t%.2lf\t\t\t%.2lf\t\t\t%.2lf\n", avg(mich2019, 0, tempSize2019), avg(mich, 0, tempSize), compareDiff(avg(mich2019, 0, tempSize2019), avg(mich, 0, tempSize)));
+    printf("Huron.\t\t%.2lf\t\t\t%.2lf\t\t\t%.2lf\n", avg(huron2019, 0, tempSize2019), avg(huron, 0, tempSize), compareDiff(avg(huron2019, 0, tempSize2019), avg(huron, 0, tempSize)));
+    printf("Erie.\t\t%.2lf\t\t\t%.2lf\t\t\t%.2lf\n", avg(erie2019, 0, tempSize2019), avg(erie, 0, tempSize), compareDiff(avg(erie2019, 0, tempSize2019), avg(erie, 0, tempSize)));
+    printf("Ont.\t\t%.2lf\t\t\t%.2lf\t\t\t%.2lf\n", avg(ont2019, 0, tempSize2019), avg(ont, 0, tempSize), compareDiff(avg(ont2019, 0, tempSize2019), avg(ont, 0, tempSize)));
+    printf("StClr.\t\t%.2lf\t\t\t%.2lf\t\t\t%.2lf\n", avg(stClr2019, 0, tempSize2019), avg(stClr, 0, tempSize), compareDiff(avg(stClr2019, 0, tempSize2019), avg(stClr, 0, tempSize)));*/
 }
 int main() {
     q18Output();
