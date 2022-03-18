@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 /*Question 1*/
 double avg(double *arr, int start, int end) {  // 1/5/6/7 Average
@@ -12,6 +13,8 @@ double avg(double *arr, int start, int end) {  // 1/5/6/7 Average
 double totalAvg(double num1, double num2, double num3, double num4, double num5, double num6, double total) {
     return (num1 + num2 + num3 + num4 + num5 + num6) / total;
 }
+// sort lakes -> nums
+
 /*Question 2*/
 char *lakeStatus(double num, double target) {  // question 2
     if (num > target) {
@@ -62,8 +65,29 @@ void coldDay(double *arr, int *day, int size, char *lakeName) {
     }
 }
 /*Question 4*/
+
 /*Question 5*/
+void summer(double num1, double num2, double num3, double num4, double num5, double num6, int size) {
+    /*
+    first part => sort from low warmesnt to high warmes [display name]
+        sort num1-num6
+        output accordinly
+         char arr = {sup,mich,huron}
+         arr1 = {supAvg,michAvg,huronAvg}
+         arr2 = {huron,sup,mich}
+    */
+    double arr[6];
+    arr[0] = num1;
+    arr[1] = num2;
+    arr[2] = num3;
+    arr[3] = num4;
+    arr[4] = num5;
+    arr[5] = num6;
+    // sort(arr, 6);
+}
+
 /*Question 6*/
+// avg(sup, 1, 79) + avg(sup, 355, 365)
 /*Question 7*/
 int swimming(double *arr, int total) {  // 7. Swimming
     int counter = 0;
@@ -121,7 +145,15 @@ void q18Output() {
     printf("Erie.\t\t%.2lf\t\t\t\t%s\n", avg(erie, 0, tempSize), lakeStatus(avg(erie, 0, tempSize), lakeAvg));
     printf("Ont.\t\t%.2lf\t\t\t\t%s\n", avg(ont, 0, tempSize), lakeStatus(avg(ont, 0, tempSize), lakeAvg));
     printf("StClr.\t\t%.2lf\t\t\t\t%s\n", avg(stClr, 0, tempSize), lakeStatus(avg(stClr, 0, tempSize), lakeAvg));
-    warmDay(sup, day, tempSize, "Sup.");
+
+    printf("\n");
+    double arr[6] = {avg(sup, 0, tempSize), avg(mich, 0, tempSize), avg(huron, 0, tempSize), avg(erie, 0, tempSize), avg(ont, 0, tempSize), avg(stClr, 0, tempSize)};
+    int *posArr = sort(arr, 6);
+    for (int i = 0; i < 6; i++) {
+        printf("%.2lf ", arr[posArr[i]]);
+    }
+
+    /*warmDay(sup, day, tempSize, "Sup.");
     coldDay(sup, day, tempSize, "Sup.");
     warmDay(mich, day, tempSize, "Mich.");
     coldDay(mich, day, tempSize, "Mich.");
@@ -132,21 +164,15 @@ void q18Output() {
     warmDay(ont, day, tempSize, "Ont.");
     coldDay(ont, day, tempSize, "Ont.");
     warmDay(stClr, day, tempSize, "StClr.");
-    coldDay(stClr, day, tempSize, "StClr.");
-    /*printf("\n\nLake\t\tSummer Average\t\tWinter Avg\n");
-    printf("Sup.\t\t%.2lf\t\t\t%.2lf\n", avg(sup, 172, 265), avg(sup, 1, 79) + avg(sup, 355, 365));
-    printf("Mich.\t\t%.2lf\t\t\t%.2lf\n", avg(mich, 172, 265), avg(mich, 1, 79) + avg(mich, 355, 365));
-    printf("Huron.\t\t%.2lf\t\t\t%.2lf\n", avg(huron, 172, 265), avg(huron, 1, 79) + avg(huron, 355, 365));
-    printf("Erie.\t\t%.2lf\t\t\t%.2lf\n", avg(erie, 172, 265), avg(erie, 1, 79) + avg(erie, 355, 365));
-    printf("Ont.\t\t%.2lf\t\t\t%.2lf\n", avg(ont, 172, 265), avg(ont, 1, 79) + avg(ont, 355, 365));
-    printf("StClr.\t\t%.2lf\t\t\t%.2lf\n", avg(stClr, 172, 265), avg(stClr, 1, 79) + avg(stClr, 355, 365));*/
-    printf("\n\nLake Name\tSwimming Total Days\tFreezing Total Days\n");
+    coldDay(stClr, day, tempSize, "StClr.");*/
+
+    /*printf("\n\nLake Name\tSwimming Total Days\tFreezing Total Days\n");
     printf("Sup.\t\t%d\t\t\t%d\n", swimming(sup, tempSize), freeze(sup, tempSize));
     printf("Mich.\t\t%d\t\t\t%d\n", swimming(mich, tempSize), freeze(mich, tempSize));
     printf("Huron.\t\t%d\t\t\t%d\n", swimming(huron, tempSize), freeze(huron, tempSize));
     printf("Erie.\t\t%d\t\t\t%d\n", swimming(erie, tempSize), freeze(erie, tempSize));
     printf("Ont.\t\t%d\t\t\t%d\n", swimming(ont, tempSize), freeze(ont, tempSize));
-    printf("StClr.\t\t%d\t\t\t%d\n", swimming(stClr, tempSize), freeze(stClr, tempSize));
+    printf("StClr.\t\t%d\t\t\t%d\n", swimming(stClr, tempSize), freeze(stClr, tempSize));*/
 }
 int main() {
     q18Output();
