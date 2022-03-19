@@ -10,16 +10,35 @@
 
 
 */
+int *sort(double arr[6], int size) {
+    static int storeArr[6] = {0, 1, 2, 3, 4, 5};
+    for (int i = 0; i < size - 1; i++) {
+        for (int j = i + 1; j < size; j++) {
+            if (arr[i] > arr[j]) {
+                int temp = storeArr[i];
+                storeArr[i] = storeArr[j];
+                storeArr[j] = temp;
+
+                double temp2 = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp2;
+            }
+        }
+    }
+    return storeArr;
+}
 
 int main() {
-    double avg[3][3] = {{5.2, 0}, {4.2, 1}, {1.2, 2}};
+    double avg[6] = {5.5, 2.2, 1, 23, 43, 12};
     char *lakes[3] = {"sup", "mich", "huron"};
+    int *posArr = sort(avg, 6);
 
-    for (int row = 0; row < 3; row++) {
-        for (int col = 0; col < 3 - 1; col++) {
-            printf("%.2lf ", avg[row][col]);
-        }
-        printf("\n");
+    for (int i = 0; i < 6; i++) {
+        printf("%.2lf ", avg[i]);
+    }
+    printf("\n");
+    for (int i = 0; i < 6; i++) {
+        printf("%d ", posArr[i]);
     }
     return 0;
 }

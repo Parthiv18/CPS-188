@@ -14,7 +14,23 @@ double totalAvg(double num1, double num2, double num3, double num4, double num5,
     return (num1 + num2 + num3 + num4 + num5 + num6) / total;
 }
 // sort lakes -> nums
+int *sort(double arr[6], int size) {
+    static int storeArr[6] = {0, 1, 2, 3, 4, 5};
+    for (int i = 0; i < size - 1; i++) {
+        for (int j = i + 1; j < size; j++) {
+            if (arr[i] > arr[j]) {
+                int temp = storeArr[i];
+                storeArr[i] = storeArr[j];
+                storeArr[j] = temp;
 
+                double temp2 = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp2;
+            }
+        }
+    }
+    return storeArr;
+}
 /*Question 2*/
 char *lakeStatus(double num, double target) {  // question 2
     if (num > target) {
@@ -65,29 +81,10 @@ void coldDay(double *arr, int *day, int size, char *lakeName) {
     }
 }
 /*Question 4*/
-
 /*Question 5*/
-void summer(double num1, double num2, double num3, double num4, double num5, double num6, int size) {
-    /*
-    first part => sort from low warmesnt to high warmes [display name]
-        sort num1-num6
-        output accordinly
-         char arr = {sup,mich,huron}
-         arr1 = {supAvg,michAvg,huronAvg}
-         arr2 = {huron,sup,mich}
-    */
-    double arr[6];
-    arr[0] = num1;
-    arr[1] = num2;
-    arr[2] = num3;
-    arr[3] = num4;
-    arr[4] = num5;
-    arr[5] = num6;
-    // sort(arr, 6);
-}
-
 /*Question 6*/
 // avg(sup, 1, 79) + avg(sup, 355, 365)
+
 /*Question 7*/
 int swimming(double *arr, int total) {  // 7. Swimming
     int counter = 0;
@@ -152,21 +149,18 @@ void q18Output() {
     dataFile(year2019, day2019, sup2019, mich2019, huron2019, erie2019, ont2019, stClr2019, "q9Data.txt");
 
     // Output [do q4 and q9]
-    double lakeAvg = totalAvg(avg(sup, 0, tempSize), avg(mich, 0, tempSize), avg(huron, 0, tempSize), avg(erie, 0, tempSize), avg(ont, 0, tempSize), avg(stClr, 0, tempSize), 6);
+    char *lakeArr[6] = {"Sup.", "Mich.", "Huron.", "Erie.", "Ont.", "StClr."};
+    double avgArr[6] = {avg(sup, 0, tempSize), avg(mich, 0, tempSize), avg(huron, 0, tempSize), avg(erie, 0, tempSize), avg(ont, 0, tempSize), avg(stClr, 0, tempSize)};
+    int *indexArr = sort(avgArr, 6);
+    
     printf("Lake\t\tAverage\t\tTotal Avg\tStatus\n");
-    printf("Sup.\t\t%.2lf\t\t%.2lf\t\t%s\n", avg(sup, 0, tempSize), lakeAvg, lakeStatus(avg(sup, 0, tempSize), lakeAvg));
-    printf("Mich.\t\t%.2lf\t\t\t\t%s\n", avg(mich, 0, tempSize), lakeStatus(avg(mich, 0, tempSize), lakeAvg));
-    printf("Huron.\t\t%.2lf\t\t\t\t%s\n", avg(huron, 0, tempSize), lakeStatus(avg(huron, 0, tempSize), lakeAvg));
-    printf("Erie.\t\t%.2lf\t\t\t\t%s\n", avg(erie, 0, tempSize), lakeStatus(avg(erie, 0, tempSize), lakeAvg));
-    printf("Ont.\t\t%.2lf\t\t\t\t%s\n", avg(ont, 0, tempSize), lakeStatus(avg(ont, 0, tempSize), lakeAvg));
-    printf("StClr.\t\t%.2lf\t\t\t\t%s\n", avg(stClr, 0, tempSize), lakeStatus(avg(stClr, 0, tempSize), lakeAvg));
-
-    printf("\n");
-    // double arr[6] = {avg(sup, 0, tempSize), avg(mich, 0, tempSize), avg(huron, 0, tempSize), avg(erie, 0, tempSize), avg(ont, 0, tempSize), avg(stClr, 0, tempSize)};
-    /*int *posArr = sort(arr, 6);
-    for (int i = 0; i < 6; i++) {
-        printf("%.2lf ", arr[posArr[i]]);
-    }*/
+    double lakeAvg = totalAvg(avg(sup, 0, tempSize), avg(mich, 0, tempSize), avg(huron, 0, tempSize), avg(erie, 0, tempSize), avg(ont, 0, tempSize), avg(stClr, 0, tempSize), 6);
+    printf("%s\t\t%.2lf\t\t%.2lf\t\t%s\n", lakeArr[indexArr[0]], avgArr[0], lakeAvg, lakeStatus(avgArr[0], lakeAvg));
+    printf("%s\t\t%.2lf\t\t\t\t%s\n", lakeArr[indexArr[1]], avgArr[1], lakeStatus(avgArr[1], lakeAvg));
+    printf("%s\t\t%.2lf\t\t\t\t%s\n", lakeArr[indexArr[2]], avgArr[2], lakeStatus(avgArr[2], lakeAvg));
+    printf("%s\t\t%.2lf\t\t\t\t%s\n", lakeArr[indexArr[3]], avgArr[3], lakeStatus(avgArr[3], lakeAvg));
+    printf("%s\t\t%.2lf\t\t\t\t%s\n", lakeArr[indexArr[4]], avgArr[4], lakeStatus(avgArr[4], lakeAvg));
+    printf("%s\t\t%.2lf\t\t\t\t%s\n", lakeArr[indexArr[5]], avgArr[5], lakeStatus(avgArr[5], lakeAvg));
 
     /*warmDay(sup, day, tempSize, "Sup.");
     coldDay(sup, day, tempSize, "Sup.");
