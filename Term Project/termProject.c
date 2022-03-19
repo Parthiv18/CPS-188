@@ -162,7 +162,7 @@ void q18Output() {
     printf("%s\t\t%.2lf\t\t\t\t%s\n", lakeArr[indexArr[4]], avgArr[4], lakeStatus(avgArr[4], lakeAvg));
     printf("%s\t\t%.2lf\t\t\t\t%s\n", lakeArr[indexArr[5]], avgArr[5], lakeStatus(avgArr[5], lakeAvg));
 
-    /*Question 3
+    /*Question 3*/
     warmDay(sup, day, tempSize, "Sup.");
     coldDay(sup, day, tempSize, "Sup.");
     warmDay(mich, day, tempSize, "Mich.");
@@ -174,7 +174,7 @@ void q18Output() {
     warmDay(ont, day, tempSize, "Ont.");
     coldDay(ont, day, tempSize, "Ont.");
     warmDay(stClr, day, tempSize, "StClr.");
-    coldDay(stClr, day, tempSize, "StClr.");*/
+    coldDay(stClr, day, tempSize, "StClr.");
 
     /*Question 4 [yet to do]*/
 
@@ -182,23 +182,23 @@ void q18Output() {
     printf("\nLake\tSummer Average\tSummer Stats\t\n");
     double summerAvgArr[6] = {avg(sup, 172, 265), avg(mich, 172, 265), avg(huron, 172, 265), avg(erie, 172, 265), avg(ont, 172, 265), avg(stClr, 172, 265)};
     int *summerIndexArr = sort(summerAvgArr, 6);
-    printf("%s\t%.2lf\t\t%s\n", lakeArr[summerIndexArr[0]], summerAvgArr[0],"No [check]");
-    printf("%s\t%.2lf\t\t%s\n", lakeArr[summerIndexArr[1]], summerAvgArr[1],"No");
-    printf("%s\t%.2lf\t\t%s\n", lakeArr[summerIndexArr[2]], summerAvgArr[2],"No");
-    printf("%s\t%.2lf\t\t%s\n", lakeArr[summerIndexArr[3]], summerAvgArr[3],"No");
-    printf("%s\t%.2lf\t\t%s\n", lakeArr[summerIndexArr[4]], summerAvgArr[4],"No");
-    printf("%s\t%.2lf\t\t%s\n", lakeArr[summerIndexArr[5]], summerAvgArr[5],"No");
+    printf("%s\t%.2lf\t\t%s\n", lakeArr[summerIndexArr[0]], summerAvgArr[0], "No [check]");
+    printf("%s\t%.2lf\t\t%s\n", lakeArr[summerIndexArr[1]], summerAvgArr[1], "No");
+    printf("%s\t%.2lf\t\t%s\n", lakeArr[summerIndexArr[2]], summerAvgArr[2], "No");
+    printf("%s\t%.2lf\t\t%s\n", lakeArr[summerIndexArr[3]], summerAvgArr[3], "No");
+    printf("%s\t%.2lf\t\t%s\n", lakeArr[summerIndexArr[4]], summerAvgArr[4], "No");
+    printf("%s\t%.2lf\t\t%s\n", lakeArr[summerIndexArr[5]], summerAvgArr[5], "No");
 
     /*Question 6*/
     printf("\nLake\tWinter Average\tWinter Stats\t\n");
     double winterAvgArr[6] = {avg(sup, 1, 79) + avg(sup, 355, 365), avg(mich, 1, 79) + avg(mich, 355, 365), avg(huron, 1, 79) + avg(huron, 355, 365), avg(erie, 1, 79) + avg(erie, 355, 365), avg(ont, 1, 79) + avg(ont, 355, 365), avg(stClr, 1, 79) + avg(stClr, 355, 365)};
     int *winterIndexArr = sort(winterAvgArr, 6);
-    printf("%s\t%.2lf\t\t%s\n", lakeArr[winterIndexArr[0]], winterAvgArr[0],"No [check]");
-    printf("%s\t%.2lf\t\t%s\n", lakeArr[winterIndexArr[1]], winterAvgArr[1],"No");
-    printf("%s\t%.2lf\t\t%s\n", lakeArr[winterIndexArr[2]], winterAvgArr[2],"No");
-    printf("%s\t%.2lf\t\t%s\n", lakeArr[winterIndexArr[3]], winterAvgArr[3],"No");
-    printf("%s\t%.2lf\t\t%s\n", lakeArr[winterIndexArr[4]], winterAvgArr[4],"No");
-    printf("%s\t%.2lf\t\t%s\n", lakeArr[winterIndexArr[5]], winterAvgArr[5],"No");
+    printf("%s\t%.2lf\t\t%s\n", lakeArr[winterIndexArr[0]], winterAvgArr[0], "No [check]");
+    printf("%s\t%.2lf\t\t%s\n", lakeArr[winterIndexArr[1]], winterAvgArr[1], "No");
+    printf("%s\t%.2lf\t\t%s\n", lakeArr[winterIndexArr[2]], winterAvgArr[2], "No");
+    printf("%s\t%.2lf\t\t%s\n", lakeArr[winterIndexArr[3]], winterAvgArr[3], "No");
+    printf("%s\t%.2lf\t\t%s\n", lakeArr[winterIndexArr[4]], winterAvgArr[4], "No");
+    printf("%s\t%.2lf\t\t%s\n", lakeArr[winterIndexArr[5]], winterAvgArr[5], "No");
 
     /*Question 7-8*/
     printf("\nLake Name\tSwimming Total Days\tFreezing Total Days\n");
@@ -209,15 +209,15 @@ void q18Output() {
     printf("Ont.\t\t%d\t\t\t%d\n", swimming(ont, tempSize), freeze(ont, tempSize));
     printf("StClr.\t\t%d\t\t\t%d\n", swimming(stClr, tempSize), freeze(stClr, tempSize));
 
-    /* Question 9
-    printf("Lake\t\tAverage(2019)\t\tAverage(2020)\t\tDifference\tTotal Avg(2019)\t\tTotal Avg(2020)\t\tDifference\n");
+    /*Question 9*/
+    printf("\nLake\t\tAverage(2019)\t\tAverage(2020)\t\tDifference\tTotal Avg(2019)\t\tTotal Avg(2020)\t\tDifference\n");
     double lakeAvg2019 = totalAvg(avg(sup2019, 0, tempSize), avg(mich2019, 0, tempSize), avg(huron2019, 0, tempSize), avg(erie2019, 0, tempSize), avg(ont2019, 0, tempSize), avg(stClr2019, 0, tempSize), 6);
     printf("Sup.\t\t%.2lf\t\t\t%.2lf\t\t\t%.2lf\t\t%.2lf\t\t\t%.2lf\t\t\t%.2lf\n", avg(sup2019, 0, tempSize2019), avg(sup, 0, tempSize), compareDiff(avg(sup2019, 0, tempSize2019), avg(sup, 0, tempSize)), lakeAvg2019, lakeAvg, compareDiff(lakeAvg2019, lakeAvg));
     printf("Mich.\t\t%.2lf\t\t\t%.2lf\t\t\t%.2lf\n", avg(mich2019, 0, tempSize2019), avg(mich, 0, tempSize), compareDiff(avg(mich2019, 0, tempSize2019), avg(mich, 0, tempSize)));
     printf("Huron.\t\t%.2lf\t\t\t%.2lf\t\t\t%.2lf\n", avg(huron2019, 0, tempSize2019), avg(huron, 0, tempSize), compareDiff(avg(huron2019, 0, tempSize2019), avg(huron, 0, tempSize)));
     printf("Erie.\t\t%.2lf\t\t\t%.2lf\t\t\t%.2lf\n", avg(erie2019, 0, tempSize2019), avg(erie, 0, tempSize), compareDiff(avg(erie2019, 0, tempSize2019), avg(erie, 0, tempSize)));
     printf("Ont.\t\t%.2lf\t\t\t%.2lf\t\t\t%.2lf\n", avg(ont2019, 0, tempSize2019), avg(ont, 0, tempSize), compareDiff(avg(ont2019, 0, tempSize2019), avg(ont, 0, tempSize)));
-    printf("StClr.\t\t%.2lf\t\t\t%.2lf\t\t\t%.2lf\n", avg(stClr2019, 0, tempSize2019), avg(stClr, 0, tempSize), compareDiff(avg(stClr2019, 0, tempSize2019), avg(stClr, 0, tempSize)));*/
+    printf("StClr.\t\t%.2lf\t\t\t%.2lf\t\t\t%.2lf\n", avg(stClr2019, 0, tempSize2019), avg(stClr, 0, tempSize), compareDiff(avg(stClr2019, 0, tempSize2019), avg(stClr, 0, tempSize)));
 }
 int main() {
     q18Output();

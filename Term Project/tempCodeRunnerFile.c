@@ -1,2 +1,2 @@
-  return num2 - num1;
-    }
+
+char *getMonth(int pos) {
