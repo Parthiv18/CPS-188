@@ -151,6 +151,7 @@ void q18Output() {
     char *lakeArr[6] = {"Sup.", "Mich.", "Huron.", "Erie.", "Ont.", "StClr."};
 
     /*Question 1-2*/
+    printf("Lake\t\tAverage\t\tTotal Avg\tStatus\n");
     double avgArr[6] = {avg(sup, 0, tempSize), avg(mich, 0, tempSize), avg(huron, 0, tempSize), avg(erie, 0, tempSize), avg(ont, 0, tempSize), avg(stClr, 0, tempSize)};
     int *indexArr = sort(avgArr, 6);
     double lakeAvg = totalAvg(avg(sup, 0, tempSize), avg(mich, 0, tempSize), avg(huron, 0, tempSize), avg(erie, 0, tempSize), avg(ont, 0, tempSize), avg(stClr, 0, tempSize), 6);
@@ -181,32 +182,32 @@ void q18Output() {
     printf("\nLake\tSummer Average\tSummer Stats\t\n");
     double summerAvgArr[6] = {avg(sup, 172, 265), avg(mich, 172, 265), avg(huron, 172, 265), avg(erie, 172, 265), avg(ont, 172, 265), avg(stClr, 172, 265)};
     int *summerIndexArr = sort(summerAvgArr, 6);
-    printf("%s\t%.2lf\t\t\n", lakeArr[summerIndexArr[0]], summerAvgArr[0]);
-    printf("%s\t%.2lf\t\t\n", lakeArr[summerIndexArr[1]], summerAvgArr[1]);
-    printf("%s\t%.2lf\t\t\n", lakeArr[summerIndexArr[2]], summerAvgArr[2]);
-    printf("%s\t%.2lf\t\t\n", lakeArr[summerIndexArr[3]], summerAvgArr[3]);
-    printf("%s\t%.2lf\t\t\n", lakeArr[summerIndexArr[4]], summerAvgArr[4]);
-    printf("%s\t%.2lf\t\t\n", lakeArr[summerIndexArr[5]], summerAvgArr[5]);
+    printf("%s\t%.2lf\t\t%s\n", lakeArr[summerIndexArr[0]], summerAvgArr[0],"No [check]");
+    printf("%s\t%.2lf\t\t%s\n", lakeArr[summerIndexArr[1]], summerAvgArr[1],"No");
+    printf("%s\t%.2lf\t\t%s\n", lakeArr[summerIndexArr[2]], summerAvgArr[2],"No");
+    printf("%s\t%.2lf\t\t%s\n", lakeArr[summerIndexArr[3]], summerAvgArr[3],"No");
+    printf("%s\t%.2lf\t\t%s\n", lakeArr[summerIndexArr[4]], summerAvgArr[4],"No");
+    printf("%s\t%.2lf\t\t%s\n", lakeArr[summerIndexArr[5]], summerAvgArr[5],"No");
 
     /*Question 6*/
     printf("\nLake\tWinter Average\tWinter Stats\t\n");
     double winterAvgArr[6] = {avg(sup, 1, 79) + avg(sup, 355, 365), avg(mich, 1, 79) + avg(mich, 355, 365), avg(huron, 1, 79) + avg(huron, 355, 365), avg(erie, 1, 79) + avg(erie, 355, 365), avg(ont, 1, 79) + avg(ont, 355, 365), avg(stClr, 1, 79) + avg(stClr, 355, 365)};
     int *winterIndexArr = sort(winterAvgArr, 6);
-    printf("%s\t%.2lf\t\t\n", lakeArr[winterIndexArr[0]], winterAvgArr[0]);
-    printf("%s\t%.2lf\t\t\n", lakeArr[winterIndexArr[1]], winterAvgArr[1]);
-    printf("%s\t%.2lf\t\t\n", lakeArr[winterIndexArr[2]], winterAvgArr[2]);
-    printf("%s\t%.2lf\t\t\n", lakeArr[winterIndexArr[3]], winterAvgArr[3]);
-    printf("%s\t%.2lf\t\t\n", lakeArr[winterIndexArr[4]], winterAvgArr[4]);
-    printf("%s\t%.2lf\t\t\n", lakeArr[winterIndexArr[5]], winterAvgArr[5]);
+    printf("%s\t%.2lf\t\t%s\n", lakeArr[winterIndexArr[0]], winterAvgArr[0],"No [check]");
+    printf("%s\t%.2lf\t\t%s\n", lakeArr[winterIndexArr[1]], winterAvgArr[1],"No");
+    printf("%s\t%.2lf\t\t%s\n", lakeArr[winterIndexArr[2]], winterAvgArr[2],"No");
+    printf("%s\t%.2lf\t\t%s\n", lakeArr[winterIndexArr[3]], winterAvgArr[3],"No");
+    printf("%s\t%.2lf\t\t%s\n", lakeArr[winterIndexArr[4]], winterAvgArr[4],"No");
+    printf("%s\t%.2lf\t\t%s\n", lakeArr[winterIndexArr[5]], winterAvgArr[5],"No");
 
-    /* Question 7-8
-    printf("\n\nLake Name\tSwimming Total Days\tFreezing Total Days\n");
+    /*Question 7-8*/
+    printf("\nLake Name\tSwimming Total Days\tFreezing Total Days\n");
     printf("Sup.\t\t%d\t\t\t%d\n", swimming(sup, tempSize), freeze(sup, tempSize));
     printf("Mich.\t\t%d\t\t\t%d\n", swimming(mich, tempSize), freeze(mich, tempSize));
     printf("Huron.\t\t%d\t\t\t%d\n", swimming(huron, tempSize), freeze(huron, tempSize));
     printf("Erie.\t\t%d\t\t\t%d\n", swimming(erie, tempSize), freeze(erie, tempSize));
     printf("Ont.\t\t%d\t\t\t%d\n", swimming(ont, tempSize), freeze(ont, tempSize));
-    printf("StClr.\t\t%d\t\t\t%d\n", swimming(stClr, tempSize), freeze(stClr, tempSize));*/
+    printf("StClr.\t\t%d\t\t\t%d\n", swimming(stClr, tempSize), freeze(stClr, tempSize));
 
     /* Question 9
     printf("Lake\t\tAverage(2019)\t\tAverage(2020)\t\tDifference\tTotal Avg(2019)\t\tTotal Avg(2020)\t\tDifference\n");
