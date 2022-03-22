@@ -31,12 +31,18 @@ void reverse(char original[], char reversed[]) {
 
 void palindromeChecker(char original[], char reversed[]) {
     int switchCounter = 1;
-    for (int i = 0; i < strlen(original); i++) {
+    /*for (int i = 0; i < strlen(original); i++) {
         if (original[i] == reversed[i]) {
             switchCounter = 1;
         } else {
             switchCounter = 0;
         }
+    }*/
+    if(original == reversed) {
+        switchCounter = 1;
+    }
+    else {
+        switchCounter = 0;
     }
     if (switchCounter == 1) {
         printf("same");
