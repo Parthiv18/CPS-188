@@ -1,3 +1,4 @@
+#include <ctype.h>
 #include <stdio.h>
 #include <string.h>
 
@@ -11,24 +12,37 @@ void strip(char original[], char stripped[]) {  // add strip
         }
     }
     for (int i = 0; original[i] != 0; i++)
-        if (original[i] != ' ') {
+        if (original[i] != ' ' && (isalpha(original[i]) || isdigit(original[i]))) {
             stripped[spaceCounter] = original[i];
             spaceCounter++;
         }
     stripped[spaceCounter] = '\0';  // empty
 }
 
-/*
-    do reverse
-*/
+void reverse(char original[], char reversed[]) {
+    // int og1 = strlen(original);
+    // int rev1 = strlen(reversed);
+    if (strlen(original) > 0) {
+        reversed[strlen(reversed)] = original[strlen(original) - 1];  // copy
+        original[strlen(original) - 1] = '\0';                        // remove
+        reverse(original, reversed);                                  // run down
+    }
+}
 
 int main() {
-    char og1[] = "boam";
-    char og1Clean[0];
-    char rev1[0];
+    char og[100];
+    printf("string: ");     // asking user
+    fgets(og, 100, stdin);  // storing string
 
-    strip(og1, og1Clean);
-    printf("%s\n", og1Clean);
+    char stp[100];  // empty strip array
+    strip(og, stp);
+    printf("Stripped Input: %s\n", stp);
+    printf("%d\n", strlen(stp));
+
+    char rev[strlen(stp) - 1];  // empty reverse array
+    reverse(stp, rev);
+    printf("Reversed String: %s\n", rev);
+    printf("%d\n", strlen(stp));
 
     return 0;
 }
