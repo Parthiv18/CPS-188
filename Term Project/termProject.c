@@ -179,7 +179,7 @@ void q18Output() {
     /*Question 4 [yet to do]*/
 
     /*Question 5*/
-    printf("\nLake\tSummer Average\tSummer Stats\t\n");
+    printf("\n\nLake\tSummer Average\tSummer Stats\t\n");
     double summerAvgArr[6] = {avg(sup, 172, 265), avg(mich, 172, 265), avg(huron, 172, 265), avg(erie, 172, 265), avg(ont, 172, 265), avg(stClr, 172, 265)};
     int *summerIndexArr = sort(summerAvgArr, 6);
     printf("%s\t%.2lf\t\t%s\n", lakeArr[summerIndexArr[0]], summerAvgArr[0], "No [check]");
