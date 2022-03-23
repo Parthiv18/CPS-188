@@ -22,11 +22,17 @@ void strip(char original[], char stripped[]) {  // add strip
 void reverse(char original[], char reversed[]) {
     // int og1 = strlen(original);
     // int rev1 = strlen(reversed);
-    if (strlen(original) > 0) {
+    /*if (strlen(original) > 0) {
         reversed[strlen(reversed)] = original[strlen(original) - 1];  // copy
         original[strlen(original) - 1] = '\0';                        // remove
         reverse(original, reversed);                                  // run down
+    }*/
+    if (original == '\0' || strlen(original) == 0) {
+        return;
     }
+    reversed[strlen(reversed)] = original[strlen(original) - 1];  // copy
+    original[strlen(original) - 1] = '\0';
+    reverse(original, reversed);
 }
 
 void palindromeChecker(char original[], char reversed[]) {
@@ -45,7 +51,7 @@ void palindromeChecker(char original[], char reversed[]) {
 
 int main() {
     char og[100];
-    printf("string: ");     // asking user
+    printf("Input String: ");     // asking user
     fgets(og, 100, stdin);  // storing string
 
     char stp[strlen(og)];  // empty strip array
@@ -56,7 +62,7 @@ int main() {
     char revStrip[100];
     reverse(stp, rev);
     strip(rev, revStrip);
-    printf("Reversed: %s", revStrip);
+    printf("Reversed Words: %s", revStrip);
 
     palindromeChecker(stp, revStrip);
 
