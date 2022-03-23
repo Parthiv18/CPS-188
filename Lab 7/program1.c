@@ -30,6 +30,17 @@ void reverse(char original[], char reversed[]) {
 }
 
 void palindromeChecker(char original[], char reversed[]) {
+    int checker = 1;
+    for (int i = 0; i < 100; i++) {
+        if (original[i] != reversed[i]) {
+            checker = 0;
+            printf("\nNot Palindrome");
+            break;
+        }
+    }
+    if (checker == 1) {
+        printf("Palindrome");
+    }
 }
 
 int main() {
@@ -42,8 +53,12 @@ int main() {
     printf("Stripped Input: %s\n", stp);
 
     char rev[100];  // empty reverse array
+    char revStrip[100];
     reverse(stp, rev);
-    printf("Reversed: %s", rev);
+    strip(rev, revStrip);
+    printf("Reversed: %s", revStrip);
+
+    palindromeChecker(stp, revStrip);
 
     return 0;
 }
