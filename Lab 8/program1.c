@@ -8,8 +8,14 @@ struct address_t {
 };
 
 void compare(char str1[], char str2[]) {
-    for (int i=0;i<10;i++) {
-        
+    int counter = 0;
+    for (int i = 0; i < 6; i++) {
+        if (str1[i] == str2[i]) {
+            counter++;
+        }
+    }
+    if (counter == 6 || counter == 5 || counter == 4) {
+        printf("\nsame");
     }
 }
 
@@ -44,8 +50,7 @@ int main() {
     }
 
     printf("%s - %s\n", Network[0].ip, Network[1].networkName);
-    splitting(Network[0].ip);
-    printf("%s - %s\n", Network[0].ip, Network[1].networkName);
+    compare(Network[1].ip, Network[4].ip);
     // printf("%s", Network.ip);
 
     return 0;
