@@ -155,12 +155,12 @@ void q18Output() {
     double avgArr[6] = {avg(sup, 0, tempSize), avg(mich, 0, tempSize), avg(huron, 0, tempSize), avg(erie, 0, tempSize), avg(ont, 0, tempSize), avg(stClr, 0, tempSize)};
     int *indexArr = sort(avgArr, 6);
     double lakeAvg = totalAvg(avg(sup, 0, tempSize), avg(mich, 0, tempSize), avg(huron, 0, tempSize), avg(erie, 0, tempSize), avg(ont, 0, tempSize), avg(stClr, 0, tempSize), 6);
-    printf("%s\t\t%.2lf\t\t%.2lf\t\t%s\n", lakeArr[indexArr[0]], avgArr[0], lakeAvg, lakeStatus(avgArr[0], lakeAvg));
+    printf("%s\t\t%.2lf\t\t%.2lf\t\t%s\tWarmest Lake\n", lakeArr[indexArr[0]], avgArr[0], lakeAvg, lakeStatus(avgArr[0], lakeAvg));
     printf("%s\t\t%.2lf\t\t\t\t%s\n", lakeArr[indexArr[1]], avgArr[1], lakeStatus(avgArr[1], lakeAvg));
     printf("%s\t\t%.2lf\t\t\t\t%s\n", lakeArr[indexArr[2]], avgArr[2], lakeStatus(avgArr[2], lakeAvg));
     printf("%s\t\t%.2lf\t\t\t\t%s\n", lakeArr[indexArr[3]], avgArr[3], lakeStatus(avgArr[3], lakeAvg));
     printf("%s\t\t%.2lf\t\t\t\t%s\n", lakeArr[indexArr[4]], avgArr[4], lakeStatus(avgArr[4], lakeAvg));
-    printf("%s\t\t%.2lf\t\t\t\t%s\n", lakeArr[indexArr[5]], avgArr[5], lakeStatus(avgArr[5], lakeAvg));
+    printf("%s\t\t%.2lf\t\t\t\t%s\t\tColdest Lake\n", lakeArr[indexArr[5]], avgArr[5], lakeStatus(avgArr[5], lakeAvg));
 
     /*Question 3*/
     warmDay(sup, day, tempSize, "Sup.");
