@@ -63,8 +63,10 @@ int main() {
     for (int j = 0; j < 10; j++) {
         for (int k = 0; k < 10 - 1; k++) {
             // printf("%d %d\n", j, k);
-            localnet(Network[j].ip, Network[k].ip);
-            printf("%s - %s and %s - %s\n", Network[j].ip, Network[j].networkName, Network[k].ip, Network[k].networkName);            
+            if (j != k) {
+                localnet(Network[j].ip, Network[k].ip);
+                printf("%s - %s and %s - %s\n", Network[j].ip, Network[j].networkName, Network[k].ip, Network[k].networkName);
+            }
         }
         printf("\n");
     }
