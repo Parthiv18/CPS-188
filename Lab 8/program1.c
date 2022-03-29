@@ -7,15 +7,17 @@ struct address_t {
     char networkName[50];
 };
 
-void compare(char str1[], char str2[]) {
+void localnet(char str1[], char str2[]) {
     int counter = 0;
     for (int i = 0; i < 6; i++) {
         if (str1[i] == str2[i]) {
             counter++;
         }
     }
-    if (counter == 6 || counter == 5 || counter == 4) {
-        printf("\nsame");
+    if (counter == 2 || counter == 4 || counter == 5 || counter == 6) {
+        printf(" [1] ");
+    } else {
+        printf(" [0] ");
     }
 }
 
@@ -49,9 +51,23 @@ int main() {
         // printf("%s - %s\n", Network[i].ip, Network[i].networkName);
     }
 
-    printf("%s - %s\n", Network[0].ip, Network[1].networkName);
-    compare(Network[1].ip, Network[4].ip);
-    // printf("%s", Network.ip);
+    // printf("%s - %s\n", Network[1].ip, Network[1].networkName);
+    // printf("%s - %s", Network[4].ip, Network[4].networkName);
+    // localnet(Network[1].ip, Network[4].ip);
+    //  printf("%s", Network.ip);
+
+    for (int j = 0; j < 10; j++) {
+        printf("%s - %s\n", Network[j].ip, Network[j].networkName);
+    }
+    printf("\nsame\n");
+    for (int j = 0; j < 10; j++) {
+        for (int k = 0; k < 10 - 1; k++) {
+            // printf("%d %d\n", j, k);
+            localnet(Network[j].ip, Network[k].ip);
+            printf("%s - %s and %s - %s\n", Network[j].ip, Network[j].networkName, Network[k].ip, Network[k].networkName);            
+        }
+        printf("\n");
+    }
 
     return 0;
 }
