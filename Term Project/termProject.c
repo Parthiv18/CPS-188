@@ -112,7 +112,7 @@ int search(double *arr, int size, double val) {
             counter = i;
         }
     }
-    return counter;
+    return counter + 1;  // since day starts at 1 not 0
 }
 /*Question 5*/
 /*Question 6*/
@@ -215,10 +215,10 @@ void q18Output() {
     int *arrIndex = sort(arr, 6);
     int warmPosIndex = search(erie, tempSize, arr[5]);
     int coldPosIndex = search(sup, tempSize, arr[0]);
-    printf("\n\n%s %.2lf at %d\n", lakeArr[arrIndex[4]], arr[5], warmPosIndex);
+    printf("\n\n%s %.2lf on ", lakeArr[arrIndex[4]], arr[5]);
     dates(warmPosIndex);
-
-    printf("%s %.2lf at %d\n", lakeArr[arrIndex[0]], arr[0], coldPosIndex);
+    printf("\n%s %.2lf on ", lakeArr[arrIndex[0]], arr[0]);
+    dates(coldPosIndex);
 
     /*Question 5*/
     printf("\n\nLake\tSummer Average\tSummer Stats\t\n");
