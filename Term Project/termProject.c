@@ -32,7 +32,7 @@ int *sort(double arr[6], int size) {
     return storeArr;
 }
 /*Question 2*/
-char *lakeStatus(double num, double target) {  // question 2
+char *lakeStatus(double num, double target) {
     if (num > target) {
         return "Warm => Above Avg";
     } else {
@@ -40,50 +40,83 @@ char *lakeStatus(double num, double target) {  // question 2
     }
 }
 /*Question 3*/
-char *getMonth(int pos) {
-    int month = pos / 30.417;                                                                                 // stores position
+void dates(int pos) {
     char *months[12] = {"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};  // make this enum
-    return months[month];
+    if (pos >= 1 && pos <= 31) {
+        printf("%s %d ", months[0], pos);
+    } else if (pos >= 32 && pos <= 60) {
+        printf("%s %d ", months[1], pos - 31);
+    } else if (pos >= 32 && pos <= 91) {
+        printf("%s %d ", months[2], pos - 60);
+    } else if (pos >= 32 && pos <= 121) {
+        printf("%s %d ", months[3], pos - 91);
+    } else if (pos >= 32 && pos <= 152) {
+        printf("%s %d ", months[4], pos - 121);
+    } else if (pos >= 32 && pos <= 182) {
+        printf("%s %d ", months[5], pos - 152);
+    } else if (pos >= 32 && pos <= 213) {
+        printf("%s %d ", months[6], pos - 182);
+    } else if (pos >= 32 && pos <= 244) {
+        printf("%s %d ", months[7], pos - 213);
+    } else if (pos >= 32 && pos <= 274) {
+        printf("%s %d ", months[8], pos - 244);
+    } else if (pos >= 32 && pos <= 305) {
+        printf("%s %d ", months[9], pos - 274);
+    } else if (pos >= 32 && pos <= 335) {
+        printf("%s %d ", months[10], pos - 305);
+    } else {
+        printf("%s %d ", months[11], pos - 335);
+    }
 }
-int getDate(int pos) {
-    return pos % 30;  // [have 2 days 2%30 2 so date is 2 (Jan 2)]
-}
-void warmDay(double *arr, int *day, int size, char *lakeName) {
-    double max = arr[0];
+double minVal(double *arr, int size) {
+    double m = arr[0];
     for (int i = 0; i < size; i++) {
-        if (max < arr[i]) {
-            max = arr[i];
+        if (m > arr[i]) {
+            m = arr[i];
         }
     }
-    printf("\n%s warmest temperature %.2lf ", lakeName, max);
+    return m;
+}
+double maxVal(double *arr, int size) {
+    double m = arr[0];
+    for (int i = 0; i < size; i++) {
+        if (m < arr[i]) {
+            m = arr[i];
+        }
+    }
+    return m;
+}
+void warmDay(double *arr, int *day, int size, char *lakeName) {
+    double max = maxVal(arr, size);
+    printf("\n%s warmest temperature is %.2lf on ", lakeName, max);
     for (int i = 0; i < size; i++) {
         if (max == arr[i]) {
-            // do something
-            // int temp = day[i];
-            printf("on %s %d ", getMonth(day[i]), getDate(day[i]));
+            dates(day[i]);
         }
     }
 }
 void coldDay(double *arr, int *day, int size, char *lakeName) {
-    double min = arr[0];
-    for (int i = 0; i < size; i++) {
-        if (min > arr[i]) {
-            min = arr[i];
-        }
-    }
-    printf("\n%s coldest temperature is %.2lf ", lakeName, min);
+    double min = minVal(arr, size);
+    printf("\n%s coldest temperature is %.2lf on ", lakeName, min);
     for (int i = 0; i < size; i++) {
         if (min == arr[i]) {
-            // do something
-            // int temp = day[i];
-            printf("on %s %d ", getMonth(day[i]), getDate(day[i]));
+            dates(day[i]);
         }
     }
 }
 /*Question 4*/
+int search(double *arr, int size, double val) {
+    int counter = 0;
+    for (int i = 0; i < size; i++) {
+        if (val == arr[i]) {
+            counter = i;
+        }
+    }
+    return counter;
+}
 /*Question 5*/
 /*Question 6*/
-// avg(sup, 1, 79) + avg(sup, 355, 365)
+// check code
 
 /*Question 7*/
 int swimming(double *arr, int total) {  // 7. Swimming
@@ -160,7 +193,7 @@ void q18Output() {
     printf("%s\t\t%.2lf\t\t\t\t%s\n", lakeArr[indexArr[2]], avgArr[2], lakeStatus(avgArr[2], lakeAvg));
     printf("%s\t\t%.2lf\t\t\t\t%s\n", lakeArr[indexArr[3]], avgArr[3], lakeStatus(avgArr[3], lakeAvg));
     printf("%s\t\t%.2lf\t\t\t\t%s\n", lakeArr[indexArr[4]], avgArr[4], lakeStatus(avgArr[4], lakeAvg));
-    printf("%s\t\t%.2lf\t\t\t\t%s\t\tColdest Lake\n", lakeArr[indexArr[5]], avgArr[5], lakeStatus(avgArr[5], lakeAvg));
+    printf("%s\t\t%.2lf\t\t\t\t%s\tColdest Lake\n", lakeArr[indexArr[5]], avgArr[5], lakeStatus(avgArr[5], lakeAvg));
 
     /*Question 3*/
     warmDay(sup, day, tempSize, "Sup.");
@@ -177,6 +210,15 @@ void q18Output() {
     coldDay(stClr, day, tempSize, "StClr.");
 
     /*Question 4 [yet to do]*/
+    // overallWarm(sup, mich, huron, erie, ont, stClr, tempSize);
+    double arr[6] = {maxVal(sup, tempSize), maxVal(mich, tempSize), maxVal(huron, tempSize), maxVal(erie, tempSize), maxVal(ont, tempSize), maxVal(stClr, tempSize)};
+    int *arrIndex = sort(arr, 6);
+    int warmPosIndex = search(erie, tempSize, arr[5]);
+    int coldPosIndex = search(sup, tempSize, arr[0]);
+    printf("\n\n%s %.2lf at %d\n", lakeArr[arrIndex[4]], arr[5], warmPosIndex);
+    dates(warmPosIndex);
+
+    printf("%s %.2lf at %d\n", lakeArr[arrIndex[0]], arr[0], coldPosIndex);
 
     /*Question 5*/
     printf("\n\nLake\tSummer Average\tSummer Stats\t\n");
@@ -221,5 +263,4 @@ void q18Output() {
 }
 int main() {
     q18Output();
-    // printf("%d %.2lf", year[0], sup[0]);
 }
