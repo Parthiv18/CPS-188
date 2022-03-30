@@ -237,7 +237,6 @@ int main() {
     }
 
     /*Question 7*/
-    /*Question 7-8*/
     printf("\nLake Name\tSwimming Total Days\n");
     printf("Sup.\t\t%d\n", swimming(sup, size));
     printf("Mich.\t\t%d\n", swimming(mich, size));
