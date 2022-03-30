@@ -174,7 +174,7 @@ double compareDiff(double num1, double num2) {
 }
 
 int main() {
-    // 2022 data
+    // 2020 data
     int size = getSize("data2020.txt");
     int year[size], day[size];
     double sup[size], mich[size], huron[size], erie[size], ont[size], stClr[size];
