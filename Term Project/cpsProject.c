@@ -114,6 +114,22 @@ double summerAverage(double *arr, int start, int end) {
     }
     return sum / (end - start);
 }
+void sort1(double arr[], int size, int indexArr[]) {
+    // static int indexArr[] = {0, 1, 2, 3, 4, 5};
+    for (int i = 0; i < size - 1; i++) {
+        for (int j = i + 1; j < size; j++) {
+            if (arr[i] < arr[j]) {
+                int indexTemp = indexArr[i];
+                indexArr[i] = indexArr[j];
+                indexArr[j] = indexTemp;
+
+                double arrTemp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = arrTemp;
+            }
+        }
+    }
+}
 /*Question 6*/
 double winterAverage(double *arr, int size, int start, int end, int start1, int end1) {
     double sum = 0;
@@ -198,8 +214,8 @@ int main() {
     /*Question 5*/
     double summerAvg[6] = {summerAverage(sup, 172 - 1, 265), summerAverage(mich, 172 - 1, 265), summerAverage(huron, 172 - 1, 265), summerAverage(erie, 172 - 1, 265), summerAverage(ont, 172 - 1, 265), summerAverage(stClr, 172 - 1, 265)};
     int summerAvgIndex[6] = {0, 1, 2, 3, 4, 5};
-    sort(summerAvg, 6, summerAvgIndex);
-    printf("Lake Name\tSummer Average Tempreture\n");
+    sort1(summerAvg, 6, summerAvgIndex);  // sort1 is max - min
+    printf("\nLake Name\tSummer Average Tempreture\n");
     for (int i = 0; i < 6; i++) {
         printf("%s\t\t%.2lf\n", lake[summerAvgIndex[i]], summerAvg[i]);
     }
@@ -208,14 +224,29 @@ int main() {
     double winterAvg[6] = {winterAverage(sup, size, 1 - 1, 79, 355 - 1, 366), winterAverage(mich, size, 1 - 1, 79, 355 - 1, 366), winterAverage(huron, size, 1 - 1, 79, 355 - 1, 366), winterAverage(erie, size, 1 - 1, 79, 355 - 1, 366), winterAverage(ont, size, 1 - 1, 79, 355 - 1, 366), winterAverage(stClr, size, 1 - 1, 79, 355 - 1, 366)};
     int winterAvgIndex[6] = {0, 1, 2, 3, 4, 5};
     sort(winterAvg, 6, winterAvgIndex);
-    printf("Lake Name\tWinter Average Tempreture\n");
+    printf("\nLake Name\tWinter Average Tempreture\n");
     for (int i = 0; i < 6; i++) {
         printf("%s\t\t%.2lf\n", lake[winterAvgIndex[i]], winterAvg[i]);
     }
 
     /*Question 7*/
+    /*Question 7-8*/
+    printf("\nLake Name\tSwimming Total Days\n");
+    printf("Sup.\t\t%d\n", swimming(sup, size));
+    printf("Mich.\t\t%d\n", swimming(mich, size));
+    printf("Huron.\t\t%d\n", swimming(huron, size));
+    printf("Erie.\t\t%d\n", swimming(erie, size));
+    printf("Ont.\t\t%d\n", swimming(ont, size));
+    printf("StClr.\t\t%d\n", swimming(stClr, size));
 
     /*Question 8*/
+    printf("\nLake Name\tFreezing Total Days\n");
+    printf("Sup.\t\t%d\n", freeze(sup, size));
+    printf("Mich.\t\t%d\n", freeze(mich, size));
+    printf("Huron.\t\t%d\n", freeze(huron, size));
+    printf("Erie.\t\t%d\n", freeze(erie, size));
+    printf("Ont.\t\t%d\n", freeze(ont, size));
+    printf("StClr.\t\t%d\n", freeze(stClr, size));
 
     /*Question 9*/
 
