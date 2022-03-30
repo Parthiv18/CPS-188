@@ -78,6 +78,17 @@ double maxVal(double *arr, int size) {
     }
     return max;
 }
+int *search(double *arr, int size, double target) {
+    static int index[35];
+    int counter = 0;
+    for (int i = 0; i < size; i++) {
+        if (target == arr[i]) {
+            counter++;
+            index[counter] = i + 1;
+        }
+    }
+    return index;
+}
 void dates(int pos) {
     char *months[12] = {"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};  // make this enum
     if (pos >= 1 && pos <= 31) {
@@ -203,7 +214,7 @@ int main() {
     for (int i = 0; i < 6; i++) {
         printf("%s\t\t%s\n", lake[lakeAvgIndex[i]], lakeStatus(lakeAvg[i], totalLakeAvg));
     }
-    printf("Warmest Lake (Avg): %s [%.2lf]\nColdest Lake (Avg): %s [%.2lf]\n", lake[lakeAvgIndex[0]], lakeAvg[0], lake[lakeAvgIndex[5]], lakeAvg[5]);
+    printf("Warmest Lake (Avg): %s [%.2lf]\nColdest Lake (Avg): %s [%.2lf]\n", lake[lakeAvgIndex[5]], lakeAvg[5], lake[lakeAvgIndex[0]], lakeAvg[0]);
 
     /*Question 3*/
     double warmLake[6] = {maxVal(sup, size), maxVal(mich, size), maxVal(huron, size), maxVal(erie, size), maxVal(ont, size), maxVal(stClr, size)};
@@ -214,15 +225,34 @@ int main() {
         printf("%s\t\t%.2lf\n", lake[warmLakeIndex[i]], warmLake[i]);
     }  // DO DATES
 
-    /*Question 4*/
-    printf("\nWarmest Temperature: %s [%.2lf]\nColdest Temperature: %s [%.2lf]\n", lake[warmLakeIndex[0]], warmLake[0], lake[warmLakeIndex[5]], warmLake[5]);
-    // DO DATES
+    double coldLake[6] = {minVal(sup, size), minVal(mich, size), minVal(huron, size), minVal(erie, size), minVal(ont, size), minVal(stClr, size)};
+    int coldLakeIndex[6] = {0, 1, 2, 3, 4, 5};
+    sort(coldLake, 6, coldLakeIndex);
+    printf("\nLake Name\tColdest Tempreture\n");
+    for (int i = 0; i < 6; i++) {
+        printf("%s\t\t%.2lf\n", lake[coldLakeIndex[i]], coldLake[i]);
+    }  // DO DATES
+    printf("\n%s\t\t%.2lf", lake[coldLakeIndex[0]], coldLake[0]);
 
+    /*Question 4*/
+    printf("\nWarmnest Temperature: %s [%.2lf] on ", lake[warmLakeIndex[5]], warmLake[5]);
+    int *warmDate = search(erie, size, warmLake[5]);
+    for (int i = 0; i < 35; i++) {
+        if (warmDate[i] != 0)
+            dates(warmDate[i]);
+    }
+    printf("\nColdest Temperature: %s [%.2lf] on ", lake[coldLakeIndex[0]], coldLake[0]);
+    int *coldDate = search(stClr, size, coldLake[0]);
+    for (int i = 0; i < 35; i++) {
+        if (coldDate[i] != 0)
+            dates(coldDate[i]);
+        // printf("%d ", dates(warmDate[i]));
+    }
     /*Question 5*/
     double summerAvg[6] = {summerAverage(sup, 172 - 1, 265), summerAverage(mich, 172 - 1, 265), summerAverage(huron, 172 - 1, 265), summerAverage(erie, 172 - 1, 265), summerAverage(ont, 172 - 1, 265), summerAverage(stClr, 172 - 1, 265)};
     int summerAvgIndex[6] = {0, 1, 2, 3, 4, 5};
     sort1(summerAvg, 6, summerAvgIndex);  // sort1 is max - min
-    printf("\nLake Name\tSummer Average Tempreture\n");
+    printf("\n\nLake Name\tSummer Average Tempreture\n");
     for (int i = 0; i < 6; i++) {
         printf("%s\t\t%.2lf\n", lake[summerAvgIndex[i]], summerAvg[i]);
     }
