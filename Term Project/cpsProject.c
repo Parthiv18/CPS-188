@@ -165,6 +165,13 @@ int freeze(double *arr, int total) {  // 8. freeze days counter
     return counter;
 }
 /*Question 9*/
+double compareDiff(double num1, double num2) {
+    if (num1 > num2) {
+        return (num1 - num2);
+    } else {
+        return (num2 - num1);
+    }
+}
 
 int main() {
     // 2022 data
