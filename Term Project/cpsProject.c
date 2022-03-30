@@ -37,7 +37,6 @@ double totalAvg(double num1, double num2, double num3, double num4, double num5,
 }
 /*Question 2*/
 void sort(double arr[], int size, int indexArr[]) {
-    // static int indexArr[] = {0, 1, 2, 3, 4, 5};
     for (int i = 0; i < size - 1; i++) {
         for (int j = i + 1; j < size; j++) {
             if (arr[i] < arr[j]) {
@@ -90,7 +89,7 @@ int *search(double *arr, int size, double target) {
     return index;
 }
 void dates(int pos) {
-    char *months[12] = {"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};  // make this enum
+    char *months[12] = {"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};
     if (pos >= 1 && pos <= 31) {
         printf("%s %d ", months[0], pos);
     } else if (pos >= 32 && pos <= 60) {
@@ -140,7 +139,7 @@ double winterAverage(double *arr, int size, int start, int end, int start1, int 
 }
 
 /*Question 7*/
-int swimming(double *arr, int total) {  // 7. Swimming
+int swimming(double *arr, int total) { 
     int counter = 0;
     for (int i = 0; i < total; i++) {
         if (arr[i] > 20) {
@@ -150,7 +149,7 @@ int swimming(double *arr, int total) {  // 7. Swimming
     return counter;
 }
 /*Question 8*/
-int freeze(double *arr, int total) {  // 8. freeze days counter
+int freeze(double *arr, int total) { 
     int counter = 0;
     for (int i = 0; i < total; i++) {
         if (arr[i] < 0) {
