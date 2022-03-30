@@ -266,13 +266,13 @@ int main() {
     }
     int *huronColdDates = search(huron, size, coldLake[3]);
     printf("\n%s Coldest Tempreture [%.2lf] Date: ", lake[coldLakeIndex[3]], coldLake[3]);
-    for (int i = 0; i < 35; i++) {
+    for (int i = 0; i < 2; i++) {
         if (huronColdDates[i] != 0)
             dates(huronColdDates[i]);
     }
     int *erieColdDates = search(erie, size, coldLake[4]);
     printf("\n%s Coldest Tempreture [%.2lf] Date: ", lake[coldLakeIndex[4]], coldLake[4]);
-    for (int i = 0; i < 35; i++) {
+    for (int i = 0; i < 2; i++) {
         if (erieColdDates[i] != 0)
             dates(erieColdDates[i]);
     }
@@ -286,7 +286,7 @@ int main() {
     /*Question 4*/
     printf("\n\nWarmnest Temperature: %s [%.2lf] on ", lake[warmLakeIndex[0]], warmLake[0]);
     int *warmDate = search(erie, size, warmLake[0]);
-    for (int i = 0; i < 35; i++) {
+    for (int i = 0; i < 2; i++) {
         if (warmDate[i] != 0)
             dates(warmDate[i]);
     }
@@ -333,6 +333,15 @@ int main() {
     printf("StClr.\t\t%d\n", freeze(stClr, size));
 
     /*Question 9*/
+    double lakeAvg2019[6] = {findAvg(sup2019, size2019), findAvg(mich2019, size2019), findAvg(huron2019, size2019), findAvg(erie2019, size2019), findAvg(ont2019, size2019), findAvg(stClr2019, size2019)};
+    double totalLakeAvg2019 = totalAvg(findAvg(sup2019, size2019), findAvg(mich2019, size2019), findAvg(huron2019, size2019), findAvg(erie2019, size2019), findAvg(ont2019, size2019), findAvg(stClr2019, size2019), 6);
+    int lakeAvgIndex2019[6] = {0, 1, 2, 3, 4, 5};
+    sort(lakeAvg2019, 6, lakeAvgIndex2019);
+    printf("\nLake Name\tAverage Tempreture (2019)\tAverage Tempreture (2020)\tDifference\n");
+    for (int i = 0; i < 6; i++) {
+        printf("%s\t\t%.2lf\t\t\t\t%.2lf\t\t\t\t%.2lf\n", lake[lakeAvgIndex2019[i]], lakeAvg2019[i], lakeAvg[i], compareDiff(lakeAvg[i], lakeAvg2019[i]));
+    }
+    printf("Total Average Tempreture (2019): %.2lf\nConclusion: 2020 Lakes are colder", totalLakeAvg2019);
 
     return 0;
 }
