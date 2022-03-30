@@ -196,15 +196,22 @@ int main() {
     // DO DATES
 
     /*Question 5*/
-    printf("\nLake Name\tSummer Average Tempreture\tWinter Average Tempreture\n");
-    printf("%s\t\t%.2lf\t\t\t\t%.2lf\n", lake[0], summerAverage(sup, 172 - 1, 265), winterAverage(sup, size, 1 - 1, 79, 355 - 1, 366));
-    printf("%s\t\t%.2lf\t\t\t\t%.2lf\n", lake[1], summerAverage(mich, 172 - 1, 265), winterAverage(mich, size, 1 - 1, 79, 355 - 1, 366));
-    printf("%s\t\t%.2lf\t\t\t\t%.2lf\n", lake[2], summerAverage(huron, 172 - 1, 265), winterAverage(huron, size, 1 - 1, 79, 355 - 1, 366));
-    printf("%s\t\t%.2lf\t\t\t\t%.2lf\n", lake[3], summerAverage(erie, 172 - 1, 265), winterAverage(erie, size, 1 - 1, 79, 355 - 1, 366));
-    printf("%s\t\t%.2lf\t\t\t\t%.2lf\n", lake[4], summerAverage(ont, 172 - 1, 265), winterAverage(ont, size, 1 - 1, 79, 355 - 1, 366));
-    printf("%s\t\t%.2lf\t\t\t\t%.2lf\n", lake[5], summerAverage(stClr, 172 - 1, 265), winterAverage(stClr, size, 1 - 1, 79, 355 - 1, 366));
+    double summerAvg[6] = {summerAverage(sup, 172 - 1, 265), summerAverage(mich, 172 - 1, 265), summerAverage(huron, 172 - 1, 265), summerAverage(erie, 172 - 1, 265), summerAverage(ont, 172 - 1, 265), summerAverage(stClr, 172 - 1, 265)};
+    int summerAvgIndex[6] = {0, 1, 2, 3, 4, 5};
+    sort(summerAvg, 6, summerAvgIndex);
+    printf("Lake Name\tSummer Average Tempreture\n");
+    for (int i = 0; i < 6; i++) {
+        printf("%s\t\t%.2lf\n", lake[summerAvgIndex[i]], summerAvg[i]);
+    }
 
     /*Question 6*/
+    double winterAvg[6] = {winterAverage(sup, size, 1 - 1, 79, 355 - 1, 366), winterAverage(mich, size, 1 - 1, 79, 355 - 1, 366), winterAverage(huron, size, 1 - 1, 79, 355 - 1, 366), winterAverage(erie, size, 1 - 1, 79, 355 - 1, 366), winterAverage(ont, size, 1 - 1, 79, 355 - 1, 366), winterAverage(stClr, size, 1 - 1, 79, 355 - 1, 366)};
+    int winterAvgIndex[6] = {0, 1, 2, 3, 4, 5};
+    sort(winterAvg, 6, winterAvgIndex);
+    printf("Lake Name\tWinter Average Tempreture\n");
+    for (int i = 0; i < 6; i++) {
+        printf("%s\t\t%.2lf\n", lake[winterAvgIndex[i]], winterAvg[i]);
+    }
 
     /*Question 7*/
 
