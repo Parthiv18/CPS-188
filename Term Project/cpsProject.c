@@ -139,7 +139,7 @@ double winterAverage(double *arr, int size, int start, int end, int start1, int 
 }
 
 /*Question 7*/
-int swimming(double *arr, int total) { 
+int swimming(double *arr, int total) {
     int counter = 0;
     for (int i = 0; i < total; i++) {
         if (arr[i] > 20) {
@@ -149,7 +149,7 @@ int swimming(double *arr, int total) {
     return counter;
 }
 /*Question 8*/
-int freeze(double *arr, int total) { 
+int freeze(double *arr, int total) {
     int counter = 0;
     for (int i = 0; i < total; i++) {
         if (arr[i] < 0) {
@@ -340,7 +340,7 @@ int main() {
     for (int i = 0; i < 6; i++) {
         printf("%s\t\t%.2lf\t\t\t\t%.2lf\t\t\t\t%.2lf\n", lake[lakeAvgIndex2019[i]], lakeAvg2019[i], lakeAvg[i], compareDiff(lakeAvg[i], lakeAvg2019[i]));
     }
-    printf("Total Average Tempreture (2019): %.2lf\nConclusion: 2020 Lakes are colder", totalLakeAvg2019);
+    printf("Total Average Tempreture (2019): %.2lf\nTotal Average Tempreture (2020): %.2lf\nConclusion: 2019 Lakes are colder", totalLakeAvg2019, totalLakeAvg);
 
     return 0;
 }
