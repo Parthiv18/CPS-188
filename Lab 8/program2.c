@@ -1,5 +1,9 @@
 #include <stdio.h>
 
-int main () {
+#include "mylibrary.h"
+/*output to bin file*/
+
+
+int main() {
     return 0;
 }
