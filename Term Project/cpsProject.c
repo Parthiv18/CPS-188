@@ -296,7 +296,9 @@ int main() {
             dates(coldDate[i]);
     }
     /*Question 5*/
-    double summerAvg[6] = {summerAverage(sup, 172 - 1, 265), summerAverage(mich, 172 - 1, 265), summerAverage(huron, 172 - 1, 265), summerAverage(erie, 172 - 1, 265), summerAverage(ont, 172 - 1, 265), summerAverage(stClr, 172 - 1, 265)};
+    double summerAvg[6] = {summerAverage(sup, 172 - 1, 265), summerAverage(mich, 172 - 1, 265),
+                           summerAverage(huron, 172 - 1, 265), summerAverage(erie, 172 - 1, 265),
+                           summerAverage(ont, 172 - 1, 265), summerAverage(stClr, 172 - 1, 265)};
     int summerAvgIndex[6] = {0, 1, 2, 3, 4, 5};  // index array
     sort(summerAvg, 6, summerAvgIndex);          // sorting
     printf("\n\nLake Name\tSummer Average Tempreture\n");
@@ -305,7 +307,9 @@ int main() {
     }
 
     /*Question 6*/
-    double winterAvg[6] = {winterAverage(sup, size, 1 - 1, 79, 355 - 1, 366), winterAverage(mich, size, 1 - 1, 79, 355 - 1, 366), winterAverage(huron, size, 1 - 1, 79, 355 - 1, 366), winterAverage(erie, size, 1 - 1, 79, 355 - 1, 366), winterAverage(ont, size, 1 - 1, 79, 355 - 1, 366), winterAverage(stClr, size, 1 - 1, 79, 355 - 1, 366)};
+    double winterAvg[6] = {winterAverage(sup, size, 1 - 1, 79, 355 - 1, 366), winterAverage(mich, size, 1 - 1, 79, 355 - 1, 366),
+                           winterAverage(huron, size, 1 - 1, 79, 355 - 1, 366), winterAverage(erie, size, 1 - 1, 79, 355 - 1, 366),
+                           winterAverage(ont, size, 1 - 1, 79, 355 - 1, 366), winterAverage(stClr, size, 1 - 1, 79, 355 - 1, 366)};
     int winterAvgIndex[6] = {0, 1, 2, 3, 4, 5};  // index array
     sort(winterAvg, 6, winterAvgIndex);          // sorting
     printf("\nLake Name\tWinter Average Tempreture\n");
