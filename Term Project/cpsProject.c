@@ -88,9 +88,9 @@ int *search(double *arr, int size, double target) { /*Function used to search ta
     }
     return index;
 }
-void dates(int pos) {                                           /*Function used to find dates given nth position*/
+void dates(int pos) {                                          /*Function used to find dates given nth position*/
     int months[12] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12};  // string array
-    if (pos >= 1 && pos <= 31) {                                // checking conditions
+    if (pos >= 1 && pos <= 31) {                               // checking conditions
         printf("%d/%d/20 ", pos, months[0]);
     } else if (pos >= 32 && pos <= 60) {
         printf("%d/%d/20 ", pos - 31, months[1]);
