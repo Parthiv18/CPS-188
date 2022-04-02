@@ -7,10 +7,10 @@ int getSize(char *fileName) {
     FILE *fp = fopen(fileName, "r");
     int checker;
     int counter = 1;
-    while (checker != EOF) {
+    while (checker != EOF) {  // looping until end of flile
         checker = fgetc(fp);
-        if (checker == '\n')
-            counter++;
+        if (checker == '\n')  // if its new line
+            counter++;        // counter incremenet
     }
     fclose(fp);
     return counter;
@@ -25,19 +25,19 @@ void dataFile(int *year, int *day, double *sup, double *mich, double *huron, dou
     fclose(fp);
 }
 /*Question 1*/
-double findAvg(double *arr, int size) {
+double findAvg(double *arr, int size) { /*Function used to find average*/
     double sum = 0;
     for (int i = 0; i < size; i++) {
         sum += arr[i];
     }
     return sum / size;
 }
-double totalAvg(double num1, double num2, double num3, double num4, double num5, double num6, double total) {
-    return (num1 + num2 + num3 + num4 + num5 + num6) / total;
+double totalAvg(double num1, double num2, double num3, double num4, double num5, double num6, double total) { /*Function used to find total average*/
+    return (num1 + num2 + num3 + num4 + num5 + num6) / total;                                                 // formula
 }
 /*Question 2*/
-void sort(double arr[], int size, int indexArr[]) {
-    for (int i = 0; i < size - 1; i++) {
+void sort(double arr[], int size, int indexArr[]) { /*Function used to sort array and index position of original array*/
+    for (int i = 0; i < size - 1; i++) {            // running a bubble sort
         for (int j = i + 1; j < size; j++) {
             if (arr[i] < arr[j]) {
                 int indexTemp = indexArr[i];
@@ -51,15 +51,15 @@ void sort(double arr[], int size, int indexArr[]) {
         }
     }
 }
-char *lakeStatus(double num, double target) {
-    if (num > target) {
+char *lakeStatus(double num, double target) { /*Function used to find warmer or colder than targert*/
+    if (num > target) {                       // conditions
         return "Warm => Above Avg";
     } else {
         return "Cold => Below Avg";
     }
 }
 /*Question 3*/
-double minVal(double *arr, int size) {
+double minVal(double *arr, int size) { /*Function used to find minimum value in an array*/
     double min = arr[0];
     for (int i = 0; i < size; i++) {
         if (min > arr[i]) {
@@ -68,7 +68,7 @@ double minVal(double *arr, int size) {
     }
     return min;
 }
-double maxVal(double *arr, int size) {
+double maxVal(double *arr, int size) { /*Function used to find maximum value in an array*/
     double max = arr[0];
     for (int i = 0; i < size; i++) {
         if (max < arr[i]) {
@@ -77,10 +77,10 @@ double maxVal(double *arr, int size) {
     }
     return max;
 }
-int *search(double *arr, int size, double target) {
+int *search(double *arr, int size, double target) { /*Function used to search target in array*/
     static int index[35];
     int counter = 0;
-    for (int i = 0; i < size; i++) {
+    for (int i = 0; i < size; i++) {  // linear search
         if (target == arr[i]) {
             counter++;
             index[counter] = i + 1;
@@ -88,32 +88,32 @@ int *search(double *arr, int size, double target) {
     }
     return index;
 }
-void dates(int pos) {
-    char *months[12] = {"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};
-    if (pos >= 1 && pos <= 31) {
-        printf("%s %d ", months[0], pos);
+void dates(int pos) {                                           /*Function used to find dates given nth position*/
+    int months[12] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12};  // string array
+    if (pos >= 1 && pos <= 31) {                                // checking conditions
+        printf("%d/%d/20 ", pos, months[0]);
     } else if (pos >= 32 && pos <= 60) {
-        printf("%s %d ", months[1], pos - 31);
+        printf("%d/%d/20 ", pos - 31, months[1]);
     } else if (pos >= 32 && pos <= 91) {
-        printf("%s %d ", months[2], pos - 60);
+        printf("%d/%d/20 ", pos - 60, months[2]);
     } else if (pos >= 32 && pos <= 121) {
-        printf("%s %d ", months[3], pos - 91);
+        printf("%d/%d/20 ", pos - 91, months[3]);
     } else if (pos >= 32 && pos <= 152) {
-        printf("%s %d ", months[4], pos - 121);
+        printf("%d/%d/20 ", pos - 121, months[4]);
     } else if (pos >= 32 && pos <= 182) {
-        printf("%s %d ", months[5], pos - 152);
+        printf("%d/%d/20 ", pos - 152, months[5]);
     } else if (pos >= 32 && pos <= 213) {
-        printf("%s %d ", months[6], pos - 182);
+        printf("%d/%d/20 ", pos - 182, months[6]);
     } else if (pos >= 32 && pos <= 244) {
-        printf("%s %d ", months[7], pos - 213);
+        printf("%d/%d/20 ", pos - 213, months[7]);
     } else if (pos >= 32 && pos <= 274) {
-        printf("%s %d ", months[8], pos - 244);
+        printf("%d/%d/20 ", pos - 244, months[8]);
     } else if (pos >= 32 && pos <= 305) {
-        printf("%s %d ", months[9], pos - 274);
+        printf("%d/%d/20 ", pos - 274, months[9]);
     } else if (pos >= 32 && pos <= 335) {
-        printf("%s %d ", months[10], pos - 305);
+        printf("%d/%d/20 ", pos - 305, months[10]);
     } else {
-        printf("%s %d ", months[11], pos - 335);
+        printf("%d/%d/20 ", months[11], pos - 335);
     }
 }
 /*Question 5*/
