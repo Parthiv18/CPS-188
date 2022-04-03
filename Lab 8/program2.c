@@ -16,7 +16,7 @@ int main() {
         }
     }
 
-    FILE *wp = fopen("binFile", "wb+");
+    FILE *wp = fopen("binFile.bin", "wb+");
 
     for (int i = 0; i < 10; i++) {
         for (int j = 0; j < 10; j++) {
