@@ -37,7 +37,12 @@ double corners(double arr[10][10]) { //sums the four corners of the array
     return arr[0][0]+arr[0][10-1]+arr[10-1][0]+arr[10-1][10-1];
 }
 double largeanti(double arr[10][10]) { //returns the largest number found in the antidiagonal ([0][99] to [99][0]) of the array.
-
+    double large=arr[10 - 1][0];
+    for (int i=0;i<10;i++) {
+        if (arr[i][10-i-1] > large)
+            large=arr[i][10-i-1];
+    }
+    return large;
 }
 
 
