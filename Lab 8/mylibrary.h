@@ -2,7 +2,6 @@
 #define __MYLIBRARY_H__
 #include "mylibrary.h"
 
-//write functions
 double sumdiag(double arr[10][10]) { //sums all the numbers in the main diagonal of the array ([0][0] to [99][99])
     double sum=0;
     for (int i=0;i<10;i++) {
