@@ -14,7 +14,7 @@ void localnet(char str1[], char str2[]) {
             counter++;
         }
     }
-    if (counter == 2 || counter == 4 || counter == 5 || counter == 6) {
+    if (counter == 4 || counter == 5 || counter == 6) {  // condition to check if they are the same
         printf(" [1] ");
     } else {
         printf(" [0] ");
@@ -33,10 +33,10 @@ int main() {
     for (int j = 0; j < 10; j++) {
         printf("%s - %s\n", Network[j].ip, Network[j].networkName);
     }
-    printf("\nsame\n");
+    printf("\nCheckinng networks [1]->Same Network and [0]->Not Same Network\n");
     for (int j = 0; j < 10; j++) {
-        for (int k = 0; k < 10 - 1; k++) {
-            if (j != k) {
+        for (int k = j; k < 10 - 1; k++) {
+            if (j != k) {  // not check the same network since it will be [1]
                 localnet(Network[j].ip, Network[k].ip);
                 printf("%s - %s and %s - %s\n", Network[j].ip, Network[j].networkName, Network[k].ip, Network[k].networkName);
             }

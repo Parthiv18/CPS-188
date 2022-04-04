@@ -4,10 +4,6 @@
 #include "mylibrary.h"
 
 int main() {
-    /*
-        100 numbers -> [10][10]
-        output to bin file
-    */
     double arr[10][10];
     FILE *fp = fopen("real.txt", "r");
     for (int i = 0; i < 10; i++) {
@@ -15,24 +11,21 @@ int main() {
             fscanf(fp, "%lf ", &arr[i][j]);
         }
     }
+    fclose(fp);
 
-    FILE *wp = fopen("binFile.bin", "wb+");
+    FILE *wb = fopen("output.bin", "wb");
+    fwrite(&arr, sizeof(double), 10 * 10, wb);
+    fclose(wb);
 
-    for (int i = 0; i < 10; i++) {
-        for (int j = 0; j < 10; j++) {
-            // fwrite(&arr, 1, 1, wp);
-            fprintf(wp, "%.1lf\t", arr[i][j]);
-        }
-        fprintf(wp, "\n");
-    }
+    FILE *wr = fopen("output.bin", "rb");
+    for (int i = 0; i < 10; i++)
+        fread(arr[i], sizeof(*arr[i]), 10 * 10, wr);
+    fclose(wb);
 
-    fprintf(wp, "\nsums all the numbers in the main diagonal of the array: %.2lf", sumdiag(arr));
+    /*fprintf(wp, "\nsums all the numbers in the main diagonal of the array: %.2lf", sumdiag(arr));
     fprintf(wp, "\nsum of all: %.2lf", sumall(arr));
     fprintf(wp, "\naverage of the last (rightmost) column of the array: %.2lf", avright(arr));
     fprintf(wp, "\nsums the four corners of the array: %.2lf", corners(arr));
-    fprintf(wp, "\nlargest number found in the antidiagonal: %.2lf", largeanti(arr));  // do this
-
-    fclose(fp);
-
+    fprintf(wp, "\nlargest number found in the antidiagonal: %.2lf", largeanti(arr));  // do this*/
     return 0;
 }
