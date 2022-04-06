@@ -3,22 +3,18 @@
 #include <string.h>
 
 struct address_t {
-    char ip[16];
-    char networkName[50];
+    int aa;
+    int bb;
+    int cc;
+    int dd;
+    char networkName[15];
 };
 
-void localnet(char str1[], char str2[]) {
-    int counter = 0;
-    for (int i = 0; i < 6; i++) {
-        if (str1[i] == str2[i]) {
-            counter++;
-        }
+int localnet(struct address_t ip1, struct address_t ip2) {
+    if (ip1.aa == ip2.aa && ip1.bb == ip2.bb) {
+        return 1;
     }
-    if (counter == 4 || counter == 5 || counter == 6) {  // condition to check if they are the same
-        printf(" [1] ");
-    } else {
-        printf(" [0] ");
-    }
+    return 0;
 }
 
 int main() {
@@ -27,21 +23,16 @@ int main() {
     int i = 0;
 
     // scanning
-    while (fscanf(fp, "%s %s", &Network[i].ip, &Network[i].networkName) != EOF) {
+    while (fscanf(fp, "%d.%d.%d.%d %s", &Network[i].aa, &Network[i].bb, &Network[i].cc, &Network[i].dd, &Network[i].networkName) != EOF) {
         i++;
     }
-    for (int j = 0; j < 10; j++) {
-        printf("%s - %s\n", Network[j].ip, Network[j].networkName);
-    }
-    printf("\nCheckinng networks [1]->Same Network and [0]->Not Same Network\n");
-    for (int j = 0; j < 10; j++) {
-        for (int k = j; k < 10 - 1; k++) {
-            if (j != k) {  // not check the same network since it will be [1]
-                localnet(Network[j].ip, Network[k].ip);
-                printf("%s - %s and %s - %s\n", Network[j].ip, Network[j].networkName, Network[k].ip, Network[k].networkName);
+    for (int j = 0; j < i; j++) {
+        for (int k = j + 1; k < i; k++) {
+            if (localnet(Network[j], Network[k]) == 1) {
+                printf("%s [%d.%d.%d.%d] and %s [%d.%d.%d.%d] are on the same network\n", Network[j].networkName, Network[j].aa, Network[j].bb, Network[j].cc, Network[j].dd,
+                       Network[k].networkName, Network[k].aa, Network[k].bb, Network[k].cc, Network[k].dd);
             }
         }
-        printf("\n");
     }
 
     return 0;
