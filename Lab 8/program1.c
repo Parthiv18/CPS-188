@@ -19,7 +19,7 @@ int localnet(struct address_t ip1, struct address_t ip2) {
 
 int main() {
     FILE *fp = fopen("data.txt", "r");
-    struct address_t Network[100];
+    struct address_t Network[300];
     int i = 0;
 
     // scanning
