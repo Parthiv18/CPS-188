@@ -36,7 +36,7 @@ int main() {
             }
         }
     }
-    printf("\n");
+    printf("\nIP Address\t Network Name\n");
     for (int j = 0; j < i; j++) {
         printf("%d.%d.%d.%d\t| %s\n", Network[j].aa, Network[j].bb, Network[j].cc, Network[j].dd,
                Network[j].networkName);
