@@ -28,7 +28,6 @@ int main() {
             break;
         i++;
     }
-    printf("%d\n", i);
     for (int j = 0; j < i; j++) {
         for (int k = j + 1; k < i; k++) {
             if (localnet(Network[j], Network[k]) == 1) {
@@ -37,6 +36,10 @@ int main() {
             }
         }
     }
-
+    printf("\n");
+    for (int j = 0; j < i; j++) {
+        printf("%d.%d.%d.%d\t| %s\n", Network[j].aa, Network[j].bb, Network[j].cc, Network[j].dd,
+               Network[j].networkName);
+    }
     return 0;
 }
