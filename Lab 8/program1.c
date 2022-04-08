@@ -24,8 +24,11 @@ int main() {
 
     // scanning
     while (fscanf(fp, "%d.%d.%d.%d %s", &Network[i].aa, &Network[i].bb, &Network[i].cc, &Network[i].dd, &Network[i].networkName) != EOF) {
+        if (Network[i].aa == 0 && Network[i].bb == 0 && Network[i].cc == 0 && Network[i].dd == 0 || Network[i].networkName == "sentinel")  // sentinal case
+            break;
         i++;
     }
+    printf("%d\n", i);
     for (int j = 0; j < i; j++) {
         for (int k = j + 1; k < i; k++) {
             if (localnet(Network[j], Network[k]) == 1) {
