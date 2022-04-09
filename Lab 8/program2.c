@@ -13,19 +13,41 @@ int main() {
     }
     fclose(fp);
 
-    FILE *wb = fopen("output.bin", "wb");
-    fwrite(&arr, sizeof(double), 10 * 10, wb);
-    fclose(wb);
+    /*Writing to bin file*/
+    FILE *wb = fopen("results.bin", "wb");
+    if (wb != NULL) {
+        double output1 = sumdiag(arr);
+        double output2 = sumall(arr);
+        double output3 = avright(arr);
+        double output4 = corners(arr);
+        double output5 = largeanti(arr);
+        fwrite(&output1, sizeof(output1), 1, wb);
+        fwrite(&output2, sizeof(output2), 1, wb);
+        fwrite(&output3, sizeof(output3), 1, wb);
+        fwrite(&output4, sizeof(output4), 1, wb);
+        fwrite(&output5, sizeof(output5), 1, wb);
+        fclose(wb);
+    } else {
+        printf("Error writing");
+    }
 
-    FILE *wr = fopen("output.bin", "rb");
-    for (int i = 0; i < 10; i++)
-        fread(arr[i], sizeof(*arr[i]), 10 * 10, wr);
-    fclose(wb);
-
-    /*fprintf(wp, "\nsums all the numbers in the main diagonal of the array: %.2lf", sumdiag(arr));
-    fprintf(wp, "\nsum of all: %.2lf", sumall(arr));
-    fprintf(wp, "\naverage of the last (rightmost) column of the array: %.2lf", avright(arr));
-    fprintf(wp, "\nsums the four corners of the array: %.2lf", corners(arr));
-    fprintf(wp, "\nlargest number found in the antidiagonal: %.2lf", largeanti(arr));  // do this*/
+    /*Writing from bin file*/
+    FILE *rb = fopen("results.bin", "rb");
+    if (rb != NULL) {
+        double output;
+        fread(&output, sizeof(output), 1, rb);
+        printf("sums all the numbers in the main diagonal of the array: %.1lf\n", output);
+        fread(&output, sizeof(output), 1, rb);
+        printf("sum of all: %.1lf\n", output);
+        fread(&output, sizeof(output), 1, rb);
+        printf("average of the last (rightmost) column of the array: %.1lf\n", output);
+        fread(&output, sizeof(output), 1, rb);
+        printf("sums the four corners of the array: %.1lf\n", output);
+        fread(&output, sizeof(output), 1, rb);
+        printf("largest number found in the antidiagonal: %.1lf\n", output);
+        fclose(rb);
+    } else {
+        printf("Error reading");
+    }
     return 0;
 }
